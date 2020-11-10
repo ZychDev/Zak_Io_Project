@@ -1,74 +1,33 @@
-#include<iostream>
-#include<list>
-#include<map>
-#include<vector>
-#include<fstream>
-#include<string>
-#include<regex>
-#include<sstream>
-#include<conio.h>
+#include <iostream>
+#include <string_view>
+#include <list>
+#include <map>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
 
-int _tmain(int argc, _TCHAR* argv[]){
-std::ifstream htmlText;
-std::string line;
-std::string eduEmail = "(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+";
+//deklaracja potrzebnych struktur
+std::vector<std::string> lista;
+std::map<std::string, std::list<std::string>> struktura;
 
-int testNum = 0;
+//makro dodajace nazwe funkcji di listy
+#define DODAWANIE() do{ \
+    lista.push_back(__func__); \
+} while(0); \
 
-std::list<std::string> l;
 
+//makro sprawdzajace na koncu funkcji, jakie funkcje są w niej zawarte (in progress)
+#define MAPA() do{\
+    int i = lista.size(); \
+    for(i; i >= 0; --i){ \
+        if(lista[i] == __func__){ \
+            for (int j =i+1; j <= lista.size(); ++j){ \
+                struktura[__func__].push_back(lista[j]); \
+            } \
+            break; \
+        } \
+    }\
+    }while(0); \
 
-htmlText.open("ltudirectory.txt");
-if (htmlText.good()){
-    while (getline(htmlText, line)){
-        std::regex e(eduEmail); // the pattern
-        bool match = regex_search(line, e);
-        if (match) {
-          ++testNum;
-       }
-    }
-}
-
-htmlText.close();
-
-system("pause");
-return 0;
-}
-/*
-std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::list<std::string> pliki) {
-    auto koniec = pliki.end();
-    std::map<std::string, std::vector<std::string>> mapa2;
-
-    for (auto it = pliki.begin(); it != pliki.end(); ++it) {
-
-        std::cout << "Wywolanie funkcji dla " << *it << std::endl;
-
-       // std::ifstream plik(*it);
-
-        std::regex wzorzec( "(?<!\\.|\\:)\\b\\w+[A-Za-z0-9_]+(?=\\()" );
-        std::ifstream inf;
-        inf.open( *it );
-
-        int lineo = 0;
-        std::string line;
-        while( std::getline( inf, line ) )
-        {
-            ++lineo;
-            std::smatch wynik;
-            if( std::regex_search( line, wynik, wzorzec ) )
-            {
-                std::cout << "Wiersz " << lineo << " : " << line;
-                for( int i; i < wynik.size(); ++i )
-                    std::cout << "\tpasuje.[" << i << "]: " << wynik[ i ] << std::endl;
-
-            }
-            else
-                std::cout << "nie pasuje.\n";
-
-        }
-
-    }
-
-    return mapa2;
-} 
-*/
