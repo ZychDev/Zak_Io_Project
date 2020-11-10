@@ -3,10 +3,12 @@
 #include <filesystem>
 #include <list>
 #include <map>
+#include <iostream>
+extern std::list<std::string>lista;
 
-    std::map<std::string, int> listing()
+    std::map<std::string, double> listing()
     {
-        std::map<std::string, int> map_name_size;
+        std::map<std::string, double> map_name_size;
         std::string sciezka;
         std::cout << "Podaj sciezke do folderu " << std::endl;
         std::cin >> sciezka;
@@ -14,16 +16,14 @@
         {
             if (std::filesystem::is_directory(std::filesystem::path(entry)) != 1)
             {
-                if (std::filesystem::file_size(entry) < 1024)
-                {
-                    map_name_size[std::filesystem::path(entry).filename().string()] = 1;
-                }
-                else
-                {
-                    map_name_size[std::filesystem::path(entry).filename().string()] = std::filesystem::file_size(entry) / 1024;
-                }
+                
+                map_name_size[std::filesystem::path(entry).filename().string()] = std::filesystem::file_size(entry);
+                
             }
         }
+        lista.push_back(__func__);
+
+
         return map_name_size;
 
     }
