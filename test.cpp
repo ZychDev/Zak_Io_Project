@@ -1,6 +1,9 @@
 #include<iostream>
 #include<list>
 #include"search2.cpp"
+
+//plik testujacy dzialanie macro
+
 std::vector<std::string> lista;
 std::map<std::string, std::list<std::string>> struktura;
 void fun1();
