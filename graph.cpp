@@ -6,8 +6,9 @@
 #include<string>
 #include<sstream>
 #include<list>
-extern std::list<std::string>lista;
-
+#include"search2.cpp"
+extern std::vector<std::string> lista;
+extern std::map<std::string, std::list<std::string>> struktura;
 class Graph
 {
 
@@ -15,27 +16,109 @@ class Graph
 
         Graph(std::map<std::string, double> Files)
         {
-             lista.push_back(__func__);
 
             //selekcja plikow #include
             std::map<std::string, std::vector<std::pair<std::string,double>>>  l;
             l= wyszukiwanie(Files);  
             std::map<std::string, double> x = Files;
-            
+            std::string name = "graf.dot";
 
 
 
 
 
-            Save_In_File(l,x);
+            Save_In_File(l,x,name);
 
 
         };
 
-        void Save_In_File(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x)
+        Graph(std::map<std::string, std::list<std::string>> struktura)
         {
-            lista.push_back(__func__);
-            std::string name = "graf.dot";
+            
+            for(auto it = struktura.begin() ; it != struktura.end() ; ++it)
+            {
+                    for(auto i = it->second.begin() ; i != it->second.end() ; ++i)
+                    {
+                        if( *i != "")
+                        {
+                            std::cout<<it->first<<"   "<<*i<<std::endl;
+
+                        }
+
+                    }
+
+            }
+            /*
+
+            for(auto l = lista.begin() ; l != lista.end() ; ++l)
+            {
+                for(auto it = struktura.begin() ; it != struktura.end() ; ++it)
+                {
+                    if( it->first == *l)
+                    {
+                        std::cout<<"yes"<<std::endl;
+                        std::cout<<*l<<std::endl;
+
+                    }
+                }
+            }
+            
+*/     
+std::string name = "dwa.dot";
+ Save_In_File2(struktura , name);
+
+
+
+        }
+void Save_In_File2(std::map<std::string, std::list<std::string>> l, std::string name)
+        {
+                    DODAWANIE();
+
+            
+            std::ofstream file(name);
+            file << "digraph files_graph\n{\n";
+            for (auto i = l.begin(); i != l.end(); ++i) 
+            {
+                
+                    for(auto j=i->second.begin(); j!=i->second.end() ; ++j)
+                    {
+
+
+                        if( *j != "")
+                        {
+                            file<<i->first<<"->"<<*j<<std::endl;
+
+                        }
+                       
+
+
+                    }
+                 
+            }
+
+                file << "}";
+                file.close();
+
+
+
+
+                std::string word = "dot -Tpng -O dwa.dot";
+                int n = word.length();
+                char array[n+1];
+                strcpy(array , word.c_str());
+
+            exec(array);
+            MAPA();
+
+        }
+
+
+
+        void Save_In_File(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
+        {
+                    DODAWANIE();
+
+            
             std::ofstream file(name);
             file << "digraph files_graph\n{\n";
             for (auto i = l.begin(); i != l.end(); ++i) 
@@ -49,7 +132,6 @@ class Graph
 
                         for(auto n = x.begin() ; n != x.end() ; ++n)
                         {
-                            std::cout<<"Nazwa pliku: "<< n->first<<" Value: "<<n->second<<std::endl;
 
 
                             if(n->first == i->first)
@@ -81,11 +163,13 @@ class Graph
                 strcpy(array , word.c_str());
 
             exec(array);
+            MAPA();
+
         }
 
         std::string exec(const char* cmd) 
         {
-            lista.push_back(__func__);
+            DODAWANIE();
 
             char buffer[128];
             std::string result = "";
@@ -101,6 +185,7 @@ class Graph
                     throw;
                 }
             pclose(pipe);
+            MAPA();
 
             return result;
         }
