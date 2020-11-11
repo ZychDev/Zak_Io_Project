@@ -1,0 +1,8 @@
+digraph files_graph
+{
+Save_In_File->exec
+main->listing
+main->wyszukiwanie
+main->Save_In_File
+main->exec
+}

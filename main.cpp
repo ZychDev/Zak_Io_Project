@@ -2,19 +2,15 @@
 #include"graph.cpp"
 #include"listing.cpp"
 #include<list>
-
-std::list<std::string>lista;
-
+#include"search2.cpp"
+std::vector<std::string> lista;
+std::map<std::string, std::list<std::string>> struktura;
 int main()
 {
-    lista.push_back(__func__);
+    DODAWANIE();
    Graph nowa(listing());
-
-   for(std::list<std::string>::iterator it = lista.begin() ; it != lista.end() ; ++it)
-    {
-        std::cout<<*it<<std::endl;
-    }
-
+    MAPA();
+    Graph nowaa(struktura);
     
     return 0;
 

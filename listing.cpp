@@ -4,10 +4,13 @@
 #include <list>
 #include <map>
 #include <iostream>
-extern std::list<std::string>lista;
-
+#include"search2.cpp"
+extern std::vector<std::string> lista;
+extern std::map<std::string, std::list<std::string>> struktura;
     std::map<std::string, double> listing()
     {
+        DODAWANIE();
+
         std::map<std::string, double> map_name_size;
         std::string sciezka;
         std::cout << "Podaj sciezke do folderu " << std::endl;
@@ -21,8 +24,8 @@ extern std::list<std::string>lista;
                 
             }
         }
-        lista.push_back(__func__);
 
+        MAPA();
 
         return map_name_size;
 

@@ -6,9 +6,11 @@
 #include<fstream>
 #include<string>
 #include<list>
-extern std::list<std::string>lista;
-
+#include"search2.cpp"
+extern std::vector<std::string> lista;
+extern std::map<std::string, std::list<std::string>> struktura;
 std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(std::map<std::string, double> pliki) {
+                    DODAWANIE();
 
     std::map<std::string, std::vector<std::pair<std::string,double>>>  mapa;
     for (auto it = pliki.begin(); it != pliki.end(); ++it) 
@@ -30,13 +32,12 @@ std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(s
               if(it->first == "a.out")
               {break;}
               mapa[it->first].push_back(std::make_pair(nazwa_pliku,it->second));         
-              std::cout<<it->first<<std::endl;          
             }
 
     }
      
   }
-    lista.push_back(__func__);
+            MAPA();
 
     return mapa;
     
