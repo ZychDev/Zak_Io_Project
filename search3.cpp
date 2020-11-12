@@ -6,35 +6,42 @@
 #include <algorithm>
 #include <vector>
 #include <fstream>
+extern std::vector<std::string>lista_nam;
+extern std::map<std::string, std::vector<std::string>> lista_namesapce;
 
-std::map<std::string, std::vector<std::string>> wyszukiwanie(std::list<std::string> pliki)
+std::vector<std::string>lista_nam_final;
+
+void segreg_nam()
 {
-
-    auto koniec = pliki.end();
-    std::map<std::string, std::vector<std::string>> mapa;
-
-    for (auto it = pliki.begin(); it != pliki.end(); ++it)
+    for(int i = 0; i<lista_nam.size() ; ++i)
     {
+        std::string sentence=lista_nam[i];
+        sentence=sentence.substr(sentence.find_first_of(" \t")+1);
+        lista_nam[i] = sentence;
+         
+    }
 
-        std::ifstream plik(*it);
 
-        while (!plik.eof())
+    for(int i = 0; i<lista_nam.size() ; ++i)
+    {
+        std::vector<std::string>lista_nam_final;
+
+        std::string s = lista_nam[i];
+        std::string delimiter = "::";
+        size_t pos = 0;
+        std::string token;
+        while ((pos = s.find(delimiter)) != std::string::npos) 
         {
-
-            std::string linijka;
-            getline(plik, linijka);
-            std::string szukany = "namespace";
-            size_t miejsce = linijka.find(szukany);
-
-            if (miejsce != std::string::npos)
-            {
-
-                miejsce += szukany.size();
-                std::string nazwa_pliku = linijka.substr(miejsce);
-                mapa[*it].push_back(nazwa_pliku);
-            }
+            token = s.substr(0, pos);
+            lista_nam_final.push_back(token);
+            s.erase(0, pos + delimiter.length());
+            
+        }
+        for(int j = 1 ; j != lista_nam_final.size() ; ++j)
+        {
+            lista_namesapce[lista_nam_final[0]].push_back(lista_nam_final[j]);
         }
     }
 
-    return mapa;
+   
 }

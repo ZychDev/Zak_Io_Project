@@ -6,6 +6,7 @@
 #include<string>
 #include<sstream>
 #include<list>
+#include <algorithm>
 #include"search2.cpp"
 extern std::vector<std::string> lista;
 extern std::map<std::string, std::list<std::string>> struktura;
@@ -27,7 +28,7 @@ class Graph
 
 
 
-            Save_In_File(l,x,name);
+            Save_In_File_Files(l,x,name);
 
 
         };
@@ -35,42 +36,55 @@ class Graph
         Graph(std::map<std::string, std::list<std::string>> struktura)
         {
             
-            for(auto it = struktura.begin() ; it != struktura.end() ; ++it)
-            {
-                    for(auto i = it->second.begin() ; i != it->second.end() ; ++i)
-                    {
-                        if( *i != "")
-                        {
-                            std::cout<<it->first<<"   "<<*i<<std::endl;
-
-                        }
-
-                    }
-
-            }
-            /*
-
-            for(auto l = lista.begin() ; l != lista.end() ; ++l)
-            {
-                for(auto it = struktura.begin() ; it != struktura.end() ; ++it)
-                {
-                    if( it->first == *l)
-                    {
-                        std::cout<<"yes"<<std::endl;
-                        std::cout<<*l<<std::endl;
-
-                    }
-                }
-            }
             
-*/     
-std::string name = "dwa.dot";
- Save_In_File2(struktura , name);
+            
+      
+            std::string name = "dwa.dot";
+            Save_In_File_Func(struktura , name);
 
 
 
         }
-void Save_In_File2(std::map<std::string, std::list<std::string>> l, std::string name)
+
+        Graph(std::map<std::string, std::vector<std::string>> names)
+        {
+            std::string name = "namespace.dot";
+            Save_In_File_Namespac(name ,names);
+
+        };
+
+
+
+        void Save_In_File_Namespac(std::string name ,std::map<std::string, std::vector<std::string>> names )
+        {
+            std::ofstream file(name);
+            file << "digraph files_graph\n{\n";
+
+            for(auto it = names.begin() ; it != names.end() ; ++it)
+            {
+                for( auto j = it->second.begin() ; j != it->second.end() ; ++j)
+                {
+                    file<<it->first<<"->"<<*j<<std::endl;
+
+                }
+            }
+
+            file << "}";
+            file.close();
+
+
+            std::string word = "dot -Tpng -O namespace.dot";
+            int n = word.length();
+            char array[n+1];
+            strcpy(array , word.c_str());
+
+            exec(array);
+            MAPA();
+
+
+        }
+
+        void Save_In_File_Func(std::map<std::string, std::list<std::string>> l, std::string name)
         {
                     DODAWANIE();
 
@@ -114,9 +128,9 @@ void Save_In_File2(std::map<std::string, std::list<std::string>> l, std::string 
 
 
 
-        void Save_In_File(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
+        void Save_In_File_Files(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
         {
-                    DODAWANIE();
+            DODAWANIE();
 
             
             std::ofstream file(name);
@@ -167,28 +181,28 @@ void Save_In_File2(std::map<std::string, std::list<std::string>> l, std::string 
 
         }
 
-        std::string exec(const char* cmd) 
-        {
-            DODAWANIE();
+    std::string exec(const char* cmd) 
+    {
+        DODAWANIE();
 
-            char buffer[128];
-            std::string result = "";
-            FILE* pipe = popen(cmd, "r");
-            if (!pipe) throw std::runtime_error("popen() failed!");
-            try {
-                while (fgets(buffer, sizeof buffer, pipe) != NULL) 
-                {
-                    result += buffer;
-                }
-                } catch (...) {
-                    pclose(pipe);
-                    throw;
-                }
-            pclose(pipe);
-            MAPA();
+        char buffer[128];
+        std::string result = "";
+        FILE* pipe = popen(cmd, "r");
+        if (!pipe) throw std::runtime_error("fail");
+        try {
+            while (fgets(buffer, sizeof buffer, pipe) != NULL) 
+            {
+                result += buffer;
+            }
+            } catch (...) {
+                pclose(pipe);
+                throw;
+            }
+        pclose(pipe);
+        MAPA();
 
-            return result;
-        }
+        return result;
+    }
 
 
 };
