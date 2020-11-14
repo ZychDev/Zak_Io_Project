@@ -14,9 +14,11 @@ extern std::map<std::string, std::list<std::string>> struktura;
 //funkcja wyszukujaca miejsca w plikach z #include oraz 
 //wyłuskująca nazwy zaincludowanych plikow
 std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(std::map<std::string, double> pliki) {
-                    DODAWANIE();
 
-    std::map<std::string, std::vector<std::pair<std::string,double>>>  mapa;
+    //DODAWANIE();
+    dodawanie();
+
+    std::map<std::string, std::vector<std::pair<std::string,double>>>  mapaa;
 
     //iteracja po liscie plikow
     for (auto it = pliki.begin(); it != pliki.end(); ++it) 
@@ -42,15 +44,17 @@ std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(s
 
               //push'owanie nazwy pliku do mapy pod kluczem 
               //nazwy pliku, w ktorym zanjduje sie petla
-              mapa[it->first].push_back(std::make_pair(nazwa_pliku,it->second));         
+              mapaa[it->first].push_back(std::make_pair(nazwa_pliku,it->second));         
             }
 
     }
      
   }
             //macro do listowania funkcji
-            MAPA();
 
-    return mapa;
+            //MAPA();
+            mapa();
+
+    return mapaa;
     
     }

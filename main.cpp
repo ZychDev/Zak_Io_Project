@@ -42,14 +42,17 @@ namespace trzy
 int main()
 {
     //makro do listowania funkcji
-    DODAWANIE();
+
+    //DODAWANIE();
+    dodawanie();
 
     //wywolanie tworzenia grafu z plikami
     Graph graf_plikow(listing());
 
     //makro do listowwania funkcji
-    MAPA();
 
+   
+    
     //wywolanie tworzenia grafu z funkcjami 
     Graph graf_funkcji(struktura);
 
@@ -60,7 +63,8 @@ int main()
     Graph graf_namespace(lista_namesapce);
 
     
-
+    //MAPA();
+    mapa();
     return 0;
 
 }

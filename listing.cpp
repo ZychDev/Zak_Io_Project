@@ -12,7 +12,7 @@ extern std::map<std::string, std::list<std::string>> struktura;
 //funkcja listujaca wszystkie pliki w wybranym przez uzytkownika folderze 
     std::map<std::string, double> listing()
     {
-        DODAWANIE();    //makro do listowania funkcji
+        dodawanie();    //makro do listowania funkcji
 
         //deklaracja zmiennych i przyjecie sciezki od uzytkownika
         std::map<std::string, double> map_name_size;
@@ -32,8 +32,8 @@ extern std::map<std::string, std::list<std::string>> struktura;
         }
 
         //makro do listowania funkcji
-        MAPA();
-
+        //MAPA();
+        mapa();
         return map_name_size;
 
     }

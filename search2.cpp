@@ -8,6 +8,9 @@
 #include <string>
 #include <vector>
 
+#ifndef search2
+#define search2
+
 //deklaracja potrzebnych struktur
 
 extern std::vector<std::string> lista;
@@ -21,7 +24,6 @@ extern std::map<std::string, std::list<std::string>> struktura;
     lista.push_back(__func__); \
 } while(0); \
 */
-
 
 void dodawanie(){
     if(lista.back() == "dodawanie" && lista.end()[-2] == "dodawanie"){}
@@ -55,9 +57,8 @@ std::string a;\
 
 void mapa(){
     static std::map<std::string, std::list<std::string>> struktura;
-    std::string a;
-    int i = lista.size() - 1 ; 
-    for(i; i >= 0; --i){ 
+    std::string a; 
+    for(int i = lista.size() - 1; i >= 0; --i){ 
         if(lista[i] == __func__){ 
             for (int j =i+1; j <= lista.size(); ++j){ 
                 if(lista[j] != ""){
@@ -72,5 +73,5 @@ void mapa(){
     }
 }
 
-
+#endif
 

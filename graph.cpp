@@ -6,8 +6,9 @@
 #include<string>
 #include<sstream>
 #include<list>
-#include <algorithm>
+#include<algorithm>
 #include"search2.cpp"
+#include<cstring>
 extern std::vector<std::string> lista;
 extern std::map<std::string, std::list<std::string>> struktura;
 class Graph
@@ -75,19 +76,19 @@ class Graph
 
             std::string word = "dot -Tpng -O namespace.dot";
             int n = word.length();
-            char array[n+1];
+            char array[26];
             strcpy(array , word.c_str());
 
             exec(array);
-            MAPA();
-
+            //MAPA();
+            mapa();
 
         }
 
         void Save_In_File_Func(std::map<std::string, std::list<std::string>> l, std::string name)
         {
-                    DODAWANIE();
-
+                    //DODAWANIE();
+                    dodawanie();
             
             std::ofstream file(name);
             file << "digraph files_graph\n{\n";
@@ -118,11 +119,12 @@ class Graph
 
                 std::string word = "dot -Tpng -O dwa.dot";
                 int n = word.length();
-                char array[n+1];
+                char array[20];
                 strcpy(array , word.c_str());
 
             exec(array);
-            MAPA();
+            //MAPA();
+            mapa();
 
         }
 
@@ -130,8 +132,8 @@ class Graph
 
         void Save_In_File_Files(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
         {
-            DODAWANIE();
-
+            //DODAWANIE();
+            dodawanie();
             
             std::ofstream file(name);
             file << "digraph files_graph\n{\n";
@@ -156,11 +158,6 @@ class Graph
                             }
 
                         }
-
-
-                        
-
-
                     }
                  }
             }
@@ -173,17 +170,24 @@ class Graph
 
                 std::string word = "dot -Tpng -O graf.dot";
                 int n = word.length();
-                char array[n+1];
+                char array[21];
                 strcpy(array , word.c_str());
 
             exec(array);
-            MAPA();
-
+            //MAPA();
+            mapa();
         }
 
     std::string exec(const char* cmd) 
     {
-        DODAWANIE();
+        //DODAWANIE();
+        dodawanie();
+
+        #ifdef _WIN32
+        _popen(" ", "w");
+        #else
+        popen(" ", "w");
+        #endif
 
         char buffer[128];
         std::string result = "";
@@ -199,8 +203,8 @@ class Graph
                 throw;
             }
         pclose(pipe);
-        MAPA();
-
+        //MAPA();
+        mapa();
         return result;
     }
 
