@@ -8,8 +8,8 @@
 #include <string>
 #include <vector>
 
-#ifndef search2
-#define search2
+//#ifndef search2
+//#define search2
 
 //deklaracja potrzebnych struktur
 
@@ -37,7 +37,6 @@ void dodawanie(){
 //makro sprawdzajace na koncu funkcji, jakie funkcje są w niej zawarte
 
 #define MAPA() do{\
-std::string a;\
     int i = lista.size() - 1 ; \
     for(i; i >= 0; --i){ \
         if(lista[i] == __func__){ \
@@ -46,8 +45,8 @@ std::string a;\
                 {\
                 struktura[__func__].push_back(lista[j]); \
                 }\
+                break; \
             } \
-            break; \
         } \
         else{\
             struktura[__func__].push_back("");\
@@ -76,5 +75,5 @@ void mapa(){
 }
 
 */
-#endif
+//#endif
 
