@@ -80,15 +80,15 @@ class Graph
             strcpy(array , word.c_str());
 
             exec(array);
-            //MAPA();
-            mapa();
+
+            MAPA();
 
         }
 
         void Save_In_File_Func(std::map<std::string, std::list<std::string>> l, std::string name)
         {
-                    //DODAWANIE();
-                    dodawanie();
+                    DODAWANIE();
+                    //dodawanie();
             
             std::ofstream file(name);
             file << "digraph files_graph\n{\n";
@@ -123,8 +123,8 @@ class Graph
                 strcpy(array , word.c_str());
 
             exec(array);
-            //MAPA();
-            mapa();
+
+            MAPA();
 
         }
 
@@ -132,8 +132,8 @@ class Graph
 
         void Save_In_File_Files(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
         {
-            //DODAWANIE();
-            dodawanie();
+            DODAWANIE();
+            //dodawanie();
             
             std::ofstream file(name);
             file << "digraph files_graph\n{\n";
@@ -174,14 +174,14 @@ class Graph
                 strcpy(array , word.c_str());
 
             exec(array);
-            //MAPA();
-            mapa();
+
+            MAPA();
         }
 
     std::string exec(const char* cmd) 
     {
-        //DODAWANIE();
-        dodawanie();
+        DODAWANIE();
+        //dodawanie();
 
         #ifdef _WIN32
         _popen(" ", "w");
@@ -203,8 +203,9 @@ class Graph
                 throw;
             }
         pclose(pipe);
-        //MAPA();
-        mapa();
+
+        MAPA();
+        
         return result;
     }
 

@@ -19,27 +19,29 @@ extern std::map<std::string, std::list<std::string>> struktura;
 
 //makro dodajace nazwe funkcji di listy
 
-/*
+
 #define DODAWANIE() do{ \
     lista.push_back(__func__); \
 } while(0); \
-*/
 
+/*
 void dodawanie(){
     if(lista.back() == "dodawanie" && lista.end()[-2] == "dodawanie"){}
     else{
         lista.push_back(__func__);
     }
 }
+*/
 
-/*
-//makro sprawdzajace na koncu funkcji, jakie funkcje są w niej zawarte (in progress)
+
+//makro sprawdzajace na koncu funkcji, jakie funkcje są w niej zawarte
+
 #define MAPA() do{\
 std::string a;\
     int i = lista.size() - 1 ; \
     for(i; i >= 0; --i){ \
         if(lista[i] == __func__){ \
-            for (int j =i+1; j <= lista.size(); ++j){ \
+            for (int j =i+1; j < lista.size(); ++j){ \
                 if(lista[j] != "")\
                 {\
                 struktura[__func__].push_back(lista[j]); \
@@ -53,12 +55,12 @@ std::string a;\
     }\
     }while(0); \
 
-*/
-
+/*
 void mapa(){
-    static std::map<std::string, std::list<std::string>> struktura;
+    //static std::map<std::string, std::list<std::string>> struktura;
     std::string a; 
-    for(int i = lista.size() - 1; i >= 0; --i){ 
+    int i = lista.size() - 1;
+    for(i; i >= 0; --i){ 
         if(lista[i] == __func__){ 
             for (int j =i+1; j <= lista.size(); ++j){ 
                 if(lista[j] != ""){
@@ -73,5 +75,6 @@ void mapa(){
     }
 }
 
+*/
 #endif
 

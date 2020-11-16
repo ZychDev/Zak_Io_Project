@@ -15,8 +15,7 @@ extern std::map<std::string, std::list<std::string>> struktura;
 //wyłuskująca nazwy zaincludowanych plikow
 std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(std::map<std::string, double> pliki) {
 
-    //DODAWANIE();
-    dodawanie();
+    DODAWANIE();
 
     std::map<std::string, std::vector<std::pair<std::string,double>>>  mapaa;
 
@@ -52,8 +51,7 @@ std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(s
   }
             //macro do listowania funkcji
 
-            //MAPA();
-            mapa();
+            MAPA();
 
     return mapaa;
     

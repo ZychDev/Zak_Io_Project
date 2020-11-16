@@ -43,8 +43,7 @@ int main()
 {
     //makro do listowania funkcji
 
-    //DODAWANIE();
-    dodawanie();
+    DODAWANIE();
 
     //wywolanie tworzenia grafu z plikami
     Graph graf_plikow(listing());
@@ -63,8 +62,20 @@ int main()
     Graph graf_namespace(lista_namesapce);
 
     
-    //MAPA();
-    mapa();
+    MAPA();
+
+    for(auto it = struktura.begin() ; it != struktura.end() ; ++it ){
+        for(auto i = it->second.begin() ; i != it->second.end() ; ++i){
+            std::cout<<"Klucz: "<< it->first<<"    Elementy:    "<<*i<<std::endl;
+        }
+    }
+
+    int x = lista.size()  ;
+    for(auto n = lista.begin() ; n != lista.end() ; ++n)
+    {
+        std::cout<<*n<<std::endl;
+    }
+
     return 0;
 
 }
