@@ -44,6 +44,10 @@ class Graph{
             std::vector<std::string> files = map_string_double_TO_string(pliki);
             std::map<std::string, std::list<std::string>>  functions = map_second_element_on_list_string(struktura);
 
+            for(auto i = struktura.begin() ; i != struktura.end() ; ++i)
+            {
+                std::cout<<i->first<<std::endl;
+            }
             std::map< std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);
             
 

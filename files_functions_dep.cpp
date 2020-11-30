@@ -17,6 +17,7 @@ std::map< std::string, std::map<std::string, std::list<std::string>>> pliki_fun(
             getline(plik, linijka);
             for (auto iter = mapa_fun.begin(); iter != mapa_fun.end(); iter++)
             {
+
                 std::string szukany = iter->first;
                 size_t miejsce = linijka.find(szukany);
 

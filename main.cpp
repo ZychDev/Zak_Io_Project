@@ -45,12 +45,23 @@ int main()
         //oczyszczenie mapy jasia
         for(auto i = z.begin() ; i != z.end() ; ++i)
             {
+                //std::cout<<"Klucz: "<<i->first<<std::endl;
                 for(auto j = i->second.begin() ; j != i->second.end() ; ++j)
                 {
-                    if(i->first !="" && *j != "")
+                    if(i->first !=" " && *j != " " && *j != "")
                     {
                         tmp[i->first].push_back(*j);
                     }
+                }
+
+            }
+
+            for(auto i = tmp.begin() ; i != tmp.end() ; ++i)
+            {
+                std::cout<<"Klucz: "<<i->first<<std::endl;
+                for(auto j = i->second.begin() ; j != i->second.end() ; ++j)
+                {
+                    
                 }
 
             }
