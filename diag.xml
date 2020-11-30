@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <Project Author="szymo" CommentTableSortAscending="false" CommentTableSortColumn="Date Time" DocumentationType="html" ExportedFromDifferentName="false" ExporterVersion="16.1.1" Name="Files" TextualAnalysisHighlightOptionCaseSensitive="false" UmlVersion="2.x" Xml_structure="simple">
+
+ 	<Models>
+
+ 		<Stereotype Id="inc" Name="Include" />
+ 		<ModelRelationshipContainer Id="fzvJq66GAqAQZgmD" Name="relationships" >
+ 			<ModelChildren>
+ 				<ModelRelationshipContainer Id="fzvJq66GAqAQZgmE" Name="Include">
+ 					<ModelChildren>
+
+ 						<Include  From="s2" Id="s2_si" Name="1" To="si">
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c1" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include  From="s2" Id="s2_li" Name="1" To="li">
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c2" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include From="s2" Id="s2_gr" Name="1" To="gr" >
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c3" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include From="si" Id="si_gr" Name="1"  To="gr">
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c4" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include  From="s2" Id="s2_mn" Name="1" To="mn" >
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c5" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include From="gr" Id="gr_mn" Name="1" To="mn">
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c6" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include  From="li" Id="li_mn" Name="1" To="mn">
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c7" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 						<Include From="s3" Id="s3_mn" Name="1"  To="mn">
+ 							<Stereotypes>
+ 								<Stereotype Idref="inc" Name="Include"/>
+ 							</Stereotypes>
+ 							<MasterView>
+ 								<Include Idref="c8" Name="1"/>
+ 							</MasterView>
+ 						</Include>
+ 					</ModelChildren>
+ 				</ModelRelationshipContainer>
+ 			</ModelChildren>
+ 		</ModelRelationshipContainer>
+
+ 		<UseCase  Id="s2" Name="search2.cpp 1758 b" >
+ 		</UseCase>
+
+ 		<UseCase Id="si" Name="search_include.cpp 1619 b">
+ 		</UseCase>
+
+ 		<UseCase Id="li" Name="listing.cpp 1218 b">
+ 		</UseCase>
+
+ 		<UseCase Id="gr" Name="graph.cpp 5059 b">
+ 		</UseCase>
+
+ 	   <UseCase Id="mn" Name="main.cpp 1696 b">
+ 		</UseCase>
+
+ 	<UseCase Id="s3" Name="search3.cpp 1265 b">
+ 	</UseCase>
+ 	</Models>
+
+ 	<Diagrams>
+
+ 		<UseCaseDiagram AlignToGrid="false" AutoFitShapesSize="false" ConnectionPointStyle="0" ConnectorLabelOrientation="0" ConnectorLineJumps="0" ConnectorLineJumpsSize="0" ConnectorModelElementNameAlignment="4" ConnectorStyle="1" DiagramBackground="rgb(255, 255, 255)" Editable="true" FollowDiagramParentElement="true" GridColor="rgb(192, 192, 192)" GridHeight="10" GridVisible="false" GridWidth="10" Height="885" HideConnectorIfFromToIsHidden="0" HideEmptyTaggedValues="false" Id="vduxq66GAqAQZgWJ" ImageHeight="0" ImageScale="1.0" ImageWidth="0" InitializeDiagramForCreate="true" Maximized="true" ModelElementNameAlignment="4" Name="Use Case Diagram1" PaintConnectorThroughLabel="1" PmAuthor="szymo" PmCreateDateTime="2020-11-17T10:34:05.240" PmLastModified="2020-11-17T11:40:51.442" PointConnectorEndToCompartmentMember="true" QualityScore="-1" RequestFitSizeWithPromptUser="false" RequestValidateSnapToGrid="false" ShapePresentationOption="0" ShowActivityStateNodeCaption="524287" ShowAllocatedFrom="true" ShowAllocatedTo="true" ShowColorLegend="false" ShowConnectorLegend="false" ShowConnectorName="0" ShowConstraints="false" ShowDefaultPackage="false" ShowExtendCondition="false" ShowInformationItemOption="2" ShowPMAuthor="false" ShowPMDifficulty="false" ShowPMDiscipline="false" ShowPMIteration="false" ShowPMPhase="false" ShowPMPriority="false" ShowPMStatus="false" ShowPMVersion="false" ShowPackageNameStyle="0" ShowShapeLegend="false" ShowShapeStereotypeIconName="true" ShowStereotypes="true" ShowTaggedValues="false" ShowUseCaseExtensionPoint="true" ShowUseCaseId="false" TeamworkCreateDateTime="0" TrimmedHeight="0" TrimmedWidth="0" UseCaseDisplayOption="0" Width="1894" X="0" Y="0" ZoomRatio="1.1" _actorDisplayOption="0" _globalPaletteOption="true" documentation="&lt;html&gt;&#13;&#10;  &lt;head&gt;&#13;&#10;    &lt;style type=&quot;text/css&quot;&gt;&#10;      &lt;!--&#10;        body { color: #000000; font-family: Dialog; font-size: 12px }&#10;      --&gt;&#10;    &lt;/style&gt;&#13;&#10;    &#13;&#10;  &lt;/head&gt;&#13;&#10;  &lt;body&gt;&#13;&#10;    &lt;p&gt;&#13;&#10;      &#13;&#10;    &lt;/p&gt;&#13;&#10;  &lt;/body&gt;&#13;&#10;&lt;/html&gt;&#13;&#10;">
+
+
+ 			<Shapes>
+ 				<UseCase Background="rgb(122, 207, 245)" ConnectToPoint="true" ConnectionPointType="2" CoverConnector="false" DisplayOption="3" Foreground="rgb(0, 0, 0)" Height="59" Id="s3_s" MetaModelElement="s3" Model="s3" ModelElementNameAlignment="9" Name="search3.cpp 1265 b" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="40" ParentConnectorLineLength="10" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowExtensionPoint="true" ShowStereotypeIconName="0" Width="119" X="779" Y="225" ZOrder="2">
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="60" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="Center" Visible="true" Width="120" X="0" Y="0"/>
+ 					<FillColor Color="rgb(122, 207, 245)" Style="1" Transparency="0" Type="1"/>
+ 				</UseCase>
+ 				<UseCase Background="rgb(122, 207, 245)" ConnectToPoint="true" ConnectionPointType="2" CoverConnector="false" DisplayOption="3" Foreground="rgb(0, 0, 0)" Height="60" Id="ma_s" MetaModelElement="mn" Model="mn" ModelElementNameAlignment="9" Name="main.cpp 1696 b" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="40" ParentConnectorLineLength="10" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowExtensionPoint="true" ShowStereotypeIconName="0" Width="120" X="610" Y="362" ZOrder="4">
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="60" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="Center" Visible="true" Width="121" X="0" Y="0"/>
+ 					<FillColor Color="rgb(122, 207, 245)" Style="1" Transparency="0" Type="1"/>
+ 				</UseCase>
+ 				<UseCase Background="rgb(122, 207, 245)" ConnectToPoint="true" ConnectionPointType="2" CoverConnector="false" DisplayOption="3" Foreground="rgb(0, 0, 0)" Height="58" Id="gr_s" MetaModelElement="gr" Model="gr" ModelElementNameAlignment="9" Name="graph.cpp 5059 b" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="40" ParentConnectorLineLength="10" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowExtensionPoint="true" ShowStereotypeIconName="0" Width="117" X="317" Y="317" ZOrder="6">
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="59" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="Center" Visible="true" Width="118" X="0" Y="0"/>
+ 					<FillColor Color="rgb(122, 207, 245)" Style="1" Transparency="0" Type="1"/>
+ 				</UseCase>
+ 				<UseCase Background="rgb(122, 207, 245)" ConnectToPoint="true" ConnectionPointType="2" CoverConnector="false" DisplayOption="3" Foreground="rgb(0, 0, 0)" Height="62" Id="li_s" MetaModelElement="li" Model="li" ModelElementNameAlignment="9" Name="listing.cpp 1218 b" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="40" ParentConnectorLineLength="10" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowExtensionPoint="true" ShowStereotypeIconName="0" Width="126" X="494" Y="239" ZOrder="8">
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="63" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="Center" Visible="true" Width="127" X="0" Y="0"/>
+ 					<FillColor Color="rgb(122, 207, 245)" Style="1" Transparency="0" Type="1"/>
+ 				</UseCase>
+ 				<UseCase Background="rgb(122, 207, 245)" ConnectToPoint="true" ConnectionPointType="2" CoverConnector="false" DisplayOption="3" Foreground="rgb(0, 0, 0)" Height="79" Id="si_s" MetaModelElement="si" Model="si" ModelElementNameAlignment="9" Name="search_include.cpp 1619 b" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="40" ParentConnectorLineLength="10" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowExtensionPoint="true" ShowStereotypeIconName="0" Width="150" X="238" Y="145" ZOrder="10">
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="80" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="Center" Visible="true" Width="150" X="0" Y="0"/>
+ 					<FillColor Color="rgb(122, 207, 245)" Style="1" Transparency="0" Type="1"/>
+ 				</UseCase>
+ 				<UseCase Background="rgb(122, 207, 245)" ConnectToPoint="true" ConnectionPointType="2" CoverConnector="false" DisplayOption="3" Foreground="rgb(0, 0, 0)" Height="60" Id="s2_s" MetaModelElement="s2" Model="s2" ModelElementNameAlignment="9" Name="search2.cpp 1758 b" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="40" ParentConnectorLineLength="10" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowExtensionPoint="true" ShowStereotypeIconName="0" Width="120" X="500" Y="9" ZOrder="12">
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="60" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="Center" Visible="true" Width="120" X="0" Y="0"/>
+ 					<FillColor Color="rgb(122, 207, 245)" Style="1" Transparency="0" Type="1"/>
+ 				</UseCase>
+ 			</Shapes>
+
+
+ 			<Connectors>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="s2_s" FromConnectType="0" FromPinType="1" FromShapeXDiff="0" FromShapeYDiff="0" Height="210" Id="c1" MetaModelElement="s2_si" Model="s2_si" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="Jux5q66GAqAQZgyy" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="231" X="314" Y="-6" ZOrder="14">
+ 					<ToPinRatio X="0.8103448152542114" Y="0.15909090638160706"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="393" Y="84"/>
+ 					<Points>
+ 						<Point X="500.0" Y="39.0"/>
+ 						<Point X="359.0" Y="158.0"/>
+ 					</Points>
+
+ 				</Include>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="s2_s" FromConnectType="0" FromPinType="1" FromShapeXDiff="0" FromShapeYDiff="0" Height="260" Id="c2" MetaModelElement="s2_li" Model="s2_li" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="weT5q66GAqAQZgz8" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="90" X="511" Y="24" ZOrder="16">
+ 					<ToPinRatio X="0.5" Y="0.0"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="517" Y="149"/>
+ 					<Points>
+ 						<Point X="557.0" Y="69.0"/>
+ 						<Point X="557.0" Y="239.0"/>
+ 					</Points>
+ 				</Include>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="s2_s" FromConnectType="0" FromPinType="2" FromShapeXDiff="0" FromShapeYDiff="0" Height="365" Id="c3" MetaModelElement="s2_gr" Model="s2_gr" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="OuX5q66GAqAQZg0o" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="194" X="369" Y="8" ZOrder="18">
+ 					<FromPinRatio X="0.14393939077854156" Y="0.7424242496490479"/>
+ 					<ToPinRatio X="0.8295454382896423" Y="0.1818181872367859"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="427" Y="173"/>
+ 					<Points>
+ 						<Point X="518.0" Y="53.0"/>
+ 						<Point X="414.0" Y="328.0"/>
+ 					</Points>
+ 				</Include>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="si_s" FromConnectType="0" FromPinType="2" FromShapeXDiff="0" FromShapeYDiff="0" Height="194" Id="c4" MetaModelElement="si_gr" Model="si_gr" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="OuX5q66GAqAQZg0o" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="111" X="268" Y="179" ZOrder="20">
+ 					<FromPinRatio X="0.5" Y="1.0"/>
+ 					<ToPinRatio X="0.14772726595401764" Y="0.1818181872367859"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="282" Y="252"/>
+ 					<Points>
+ 						<Point X="313.0" Y="224.0"/>
+ 						<Point X="334.0" Y="328.0"/>
+ 					</Points>
+ 				</Include>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="s2_s" FromConnectType="0" FromPinType="2" FromShapeXDiff="0" FromShapeYDiff="0" Height="399" Id="c5" MetaModelElement="s2_mn" Model="s2_mn" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="utrFq66GAqAQZg5I" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="151" X="564" Y="8" ZOrder="22">
+ 					<FromPinRatio X="0.9090909361839294" Y="0.7424242496490479"/>
+ 					<ToPinRatio X="0.5" Y="0.0"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="600" Y="180"/>
+ 					<Points>
+ 						<Point X="609.0" Y="53.0"/>
+ 						<Point X="670.0" Y="362.0"/>
+ 					</Points>
+ 				</Include>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="gr_s" FromConnectType="0" FromPinType="2" FromShapeXDiff="0" FromShapeYDiff="0" Height="136" Id="c6" MetaModelElement="gr_mn" Model="gr_mn" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="utrFq66GAqAQZg5I" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="266" X="389" Y="300" ZOrder="24">
+ 					<FromPinRatio X="1.0" Y="0.5"/>
+ 					<ToPinRatio X="0.0" Y="0.5"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="485" Y="359"/>
+ 					<Points>
+ 						<Point X="434.0" Y="346.0"/>
+ 						<Point X="610.0" Y="391.0"/>
+ 					</Points>
+ 				</Include>
+ 			<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="li_s" FromConnectType="0" FromPinType="2" FromShapeXDiff="0" FromShapeYDiff="0" Height="163" Id="c7" MetaModelElement="li_mn" Model="li_mn" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="utrFq66GAqAQZg5I" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="140" X="525" Y="256" ZOrder="26">
+ 					<FromPinRatio X="0.6022727489471436" Y="1.0"/>
+ 					<ToPinRatio X="0.09090909361839294" Y="0.20454545319080353"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="552" Y="318"/>
+ 					<Points>
+ 						<Point X="570.0" Y="301.0"/>
+ 						<Point X="620.0" Y="374.0"/>
+ 					</Points>
+ 				</Include>
+ 				<Include Background="rgb(122, 207, 245)" ConnectorLabelOrientation="4" ConnectorLineJumps="4" ConnectorStyle="Follow Diagram" Foreground="rgb(0, 0, 0)" From="s3_s" FromConnectType="0" FromPinType="2" FromShapeXDiff="0" FromShapeYDiff="0" Height="185" Id="c8" MetaModelElement="s3_mn" Model="s3_mn" ModelElementNameAlignment="9" Name="1" PaintThroughLabel="2" RequestRebuild="false" RequestRebuildFromEnd="false" RequestRebuildToEnd="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" Selectable="true" ShowConnectorName="2" To="utrFq66GAqAQZg5I" ToConnectType="0" ToPinType="2" ToShapeXDiff="0" ToShapeYDiff="0" UseFromShapeCenter="true" UseToShapeCenter="true" Width="169" X="670" Y="230" ZOrder="28">
+ 					<FromPinRatio X="0.125" Y="0.8409090638160706"/>
+ 					<ToPinRatio X="0.875" Y="0.13636364042758942"/>
+ 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+ 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+ 						<Stroke/>
+ 					</Line>
+ 					<Caption Height="30" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="None" Visible="true" Width="82" X="722" Y="301"/>
+ 					<Points>
+ 						<Point X="793.0" Y="275.0"/>
+ 						<Point X="715.0" Y="370.0"/>
+ 					</Points>
+ 				</Include>
+ 			</Connectors>
+ 		</UseCaseDiagram>
+ 	</Diagrams>
+ </Project> 
