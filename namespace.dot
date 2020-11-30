@@ -1,6 +1,0 @@
-digraph files_graph
-{
-jeden->dwa
-trzy->jeden
-trzy->dwa
-}

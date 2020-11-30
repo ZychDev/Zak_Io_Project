@@ -7,135 +7,174 @@
 #include<sstream>
 #include<list>
 #include<algorithm>
-#include"search2.cpp"
 #include<cstring>
-extern std::vector<std::string> lista;
-extern std::map<std::string, std::list<std::string>> struktura;
-class Graph
-{
-
+#include"files_functions_dep.cpp"
+class Graph{
+    
     public:
-
+        //1.Pliki
         Graph(std::map<std::string, double> Files)
         {
-
-            //selekcja plikow #include
             std::map<std::string, std::vector<std::pair<std::string,double>>>  l;
             l= wyszukiwanie(Files);  
             std::map<std::string, double> x = Files;
-            std::string name = "graf.dot";
-
-
-
-
-
+            std::string name = "pliki.dot";
             Save_In_File_Files(l,x,name);
-
-
         };
 
-        Graph(std::map<std::string, std::list<std::string>> struktura)
+        //2.Funkcje
+        Graph(std::map<std::string, std::vector<std::string>> struktura)
         {
-            
-            
-            
-      
-            std::string name = "dwa.dot";
+            std::string name = "funkcje.dot";
             Save_In_File_Func(struktura , name);
-
-
-
         }
 
+        //3.Namespace
+        /*
         Graph(std::map<std::string, std::vector<std::string>> names)
         {
             std::string name = "namespace.dot";
             Save_In_File_Namespac(name ,names);
-
         };
+*/
+
+        //4.Pliki - Funckje
+        Graph(std::map<std::string, double> pliki , std::map<std::string, std::vector<std::string>> struktura)
+        {
+            std::vector<std::string> files = map_string_double_TO_string(pliki);
+            std::map<std::string, std::list<std::string>>  functions = map_second_element_on_list_string(struktura);
+
+            std::map< std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);
+            
+
+           
 
 
+            std::string name = "pliki_funkcje.dot";
+            Save_File_Func(combine , name);
+
+        
+            
+
+           
+
+        }
+
+        std::vector<std::string> map_string_double_TO_string(std::map<std::string, double> pliki)
+        {
+            std::vector<std::string> tmp;
+            for(auto i = pliki.begin() ; i != pliki.end() ; ++i)
+            {
+                tmp.push_back(i->first);
+            }
+
+            return tmp;
+        }
+
+        std::map< std::string, std::list<std::string >> map_second_element_on_list_string(std::map<std::string, std::vector<std::string>>funkcje)
+        {
+            
+            std::map< std::string, std::list<std::string >> tmp;
+            
+            for(auto i = funkcje.begin() ; i != funkcje.end() ; ++i)
+            {
+                for(auto j = i->second.begin() ; j != i->second.end() ; ++j)
+                {
+                    tmp[i->first].push_back(*j);
+                }
+
+            }
+            
+            return tmp;
+        }
+        void Save_File_Func(std::map< std::string, std::map<std::string, std::list<std::string>>> combine, std::string name)
+        {
+            //std::ofstream file(name);
+            std::ofstream file("./folder/" + name);
+
+            file << "digraph files_graph\n{\n";
+
+            for(auto i = combine.begin() ; i != combine.end() ; ++i)
+            {
+                for(auto j = i->second.begin() ; j != i->second.end() ; ++j)
+                {
+                    file << '"' << i->first<< "\"->" << '"'<<j->first   << '"' <<"\n";
+                    for(auto z  = j->second.begin() ; z != j->second.end() ; ++z)
+                    {
+                        file<<"->\""<<*z<<"\"";
+                    }
+                }
+            }
+
+
+
+
+            file << "}";
+            file.close();
+            std::string word = "dot -Tpng -O ./folder/" + name;
+            int n = word.length();
+            char array[n];
+            strcpy(array, word.c_str());
+
+            exec(array);
+        }
 
         void Save_In_File_Namespac(std::string name ,std::map<std::string, std::vector<std::string>> names )
         {
-            std::ofstream file(name);
-            file << "digraph files_graph\n{\n";
+            //std::ofstream file(name);
+            std::ofstream file("./folder/" + name);
 
+            file << "digraph files_graph\n{\n";
             for(auto it = names.begin() ; it != names.end() ; ++it)
             {
                 for( auto j = it->second.begin() ; j != it->second.end() ; ++j)
                 {
                     file<<it->first<<"->"<<*j<<std::endl;
-
                 }
             }
-
             file << "}";
             file.close();
-
-
-            std::string word = "dot -Tpng -O namespace.dot";
+            std::string word = "dot -Tpng -O ./folder/" + name;
             int n = word.length();
-            char array[26];
+            char array[n];
             strcpy(array , word.c_str());
-
             exec(array);
-
-            MAPA();
-
         }
 
-        void Save_In_File_Func(std::map<std::string, std::list<std::string>> l, std::string name)
-        {
-                    DODAWANIE();
-                    //dodawanie();
-            
-            std::ofstream file(name);
+        void Save_In_File_Func(std::map<std::string, std::vector<std::string>> l, std::string name)
+        {            
+            //std::ofstream file(name);
+            std::ofstream file("./folder/"+name);
+
             file << "digraph files_graph\n{\n";
+
             for (auto i = l.begin(); i != l.end(); ++i) 
             {
-                
                     for(auto j=i->second.begin(); j!=i->second.end() ; ++j)
                     {
-
-
                         if( *j != "")
                         {
-                            file<<i->first<<"->"<<*j<<std::endl;
-
+                            file<<"\""<<i->first<<"\""<<"->"<<"\""<<*j<<"\""<<std::endl;
+                            std::cout<<i->first<< "->"<< *j <<std::endl;
                         }
-                       
-
-
                     }
                  
             }
-
                 file << "}";
                 file.close();
-
-
-
-
-                std::string word = "dot -Tpng -O dwa.dot";
+                std::string word = "dot -Tpng -O ./folder/" + name;
                 int n = word.length();
-                char array[20];
+                char array[n];
                 strcpy(array , word.c_str());
 
             exec(array);
-
-            MAPA();
-
         }
 
 
 
         void Save_In_File_Files(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
         {
-            DODAWANIE();
-            //dodawanie();
-            
-            std::ofstream file(name);
+            std::ofstream file("./folder/"+name);
             file << "digraph files_graph\n{\n";
             for (auto i = l.begin(); i != l.end(); ++i) 
             {
@@ -143,9 +182,6 @@ class Graph
                 {
                     for(auto j=i->second.begin(); j!=i->second.end() ; ++j)
                     {
-
-
-
                         for(auto n = x.begin() ; n != x.end() ; ++n)
                         {
 
@@ -164,25 +200,17 @@ class Graph
 
                 file << "}";
                 file.close();
-
-
-
-
-                std::string word = "dot -Tpng -O graf.dot";
+                std::string word = "dot -Tpng -O ./folder/" + name;
                 int n = word.length();
-                char array[21];
+                char array[n];
                 strcpy(array , word.c_str());
 
             exec(array);
 
-            MAPA();
         }
 
     std::string exec(const char* cmd) 
     {
-        DODAWANIE();
-        //dodawanie();
-
         #ifdef _WIN32
         _popen(" ", "w");
         #else
@@ -202,14 +230,9 @@ class Graph
                 pclose(pipe);
                 throw;
             }
-        pclose(pipe);
-
-        MAPA();
-        
+        pclose(pipe);        
         return result;
     }
-
-
 };
 
 

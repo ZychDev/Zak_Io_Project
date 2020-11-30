@@ -2,80 +2,67 @@
 #include"graph.cpp"
 #include"listing.cpp"
 #include<list>
-#include"search2.cpp"
 #include"search3.cpp"
-
-//struktury przechowujace strukture funkcji w projekcie
-std::vector<std::string> lista;
-std::map<std::string, std::list<std::string>> struktura;
+#include"search_func_nam.cpp"
+#include<string>
 //struktury przechowujace strukture namespace w projekcie
 std::vector<std::string>lista_nam;
 std::map<std::string, std::vector<std::string>> lista_namesapce;
 
-//namespace do grafu
-namespace jeden
-{
-    namespace dwa
-    {
-        void pretty()
-        {
-            lista_nam.push_back(__PRETTY_FUNCTION__);
-        }
-    }
-}
-
-namespace trzy
-{
-    namespace jeden
-    {
-        namespace dwa
-        {
-            void pretty()
-            {
-                lista_nam.push_back(__PRETTY_FUNCTION__);
-            }
-        }
-    }
-    
-}
 
 int main()
 {
-    //makro do listowania funkcji
+    std::cout<<"Hello choose the graph you are interested in "<<std::endl;
+    std::cout<<"1.Files  \n2.Namespaces in progress  \n3.Functions  \n4.Pliki - Funkcje"<<std::endl;
+    int choice;
+    std::cin>>choice;
 
-    DODAWANIE();
-
-    //wywolanie tworzenia grafu z plikami
-    Graph graf_plikow(listing());
-
-    //makro do listowwania funkcji
-
-   
-    
-    //wywolanie tworzenia grafu z funkcjami 
-    Graph graf_funkcji(struktura);
-
-    //wywolanie tworzenia grafu z namesapcem 
-    jeden::dwa::pretty();
-    trzy::jeden::dwa::pretty();
-    segreg_nam();
-    Graph graf_namespace(lista_namesapce);
-
-    
-    MAPA();
-
-    for(auto it = struktura.begin() ; it != struktura.end() ; ++it ){
-        for(auto i = it->second.begin() ; i != it->second.end() ; ++i){
-            std::cout<<"Klucz: "<< it->first<<"    Elementy:    "<<*i<<std::endl;
-        }
-    }
-
-    int x = lista.size()  ;
-    for(auto n = lista.begin() ; n != lista.end() ; ++n)
+    switch (choice)
     {
-        std::cout<<*n<<std::endl;
+    case 1:
+    {
+        std::map<std::string, double> x = listing();
+        Graph graf_plikow(x);
+        break;
+    }
+    case 2:
+    {   
+        //namespace
+        break;
+    }
+    case 3:
+    {
+        std::map<std::string, double> x = listing();
+        std::map<std::string, std::vector<std::string>> z = wyszukiwanie2(x);
+        Graph graf_funkcji(z);
+    }
+    case 4:
+    {
+        std::map<std::string, double> x = listing();
+        std::map<std::string, std::vector<std::string>> z = wyszukiwanie2(x);
+        std::map<std::string, std::vector<std::string>> tmp;
+        
+        //oczyszczenie mapy jasia
+        for(auto i = z.begin() ; i != z.end() ; ++i)
+            {
+                for(auto j = i->second.begin() ; j != i->second.end() ; ++j)
+                {
+                    if(i->first !="" && *j != "")
+                    {
+                        tmp[i->first].push_back(*j);
+                    }
+                }
+
+            }
+
+        Graph graf_pliki_funkcje(x , tmp);
+    }
+    default:
+    {
+        std::cout<<"End of the program"<<std::endl;
+        break;
+    }
     }
 
     return 0;
-
 }

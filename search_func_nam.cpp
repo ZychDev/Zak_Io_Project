@@ -8,7 +8,7 @@
 #include<regex>
 
 
-std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::string, double> pliki) {
+std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::string, double> pliki ) {
 
     std::map<std::string, std::vector<std::string>>  function_map;
     std::regex rgx("\\b\\w+[A-Za-z0-9_]+(?=\\()");
@@ -18,13 +18,24 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::stri
     std::string key;
     std::string found;
 
-    for (auto it = pliki.begin(); it != pliki.end(); ++it) {
+    
+   
 
+    for (auto it = pliki.begin(); it != pliki.end(); ++it) {
+        if(it->first == "a.out")
+        {
+            std::cout<<"znikaj"<<std::endl;
+        }
+        else
+        {
+            
+        
+        
+        
         int counter2 = 0;
         int counter = 0;
         std::ifstream plik(it->first);
-        while(!plik.eof()){
-           
+        while(!plik.eof() ){
             std::string linijka;
             getline(plik, linijka);
 
@@ -52,16 +63,17 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::stri
 
             if(linijka.find("{") != std::string::npos && linijka.find("class") == std::string::npos){
                 ++counter;
-                std::cout << "counter wynosi " << counter << " w " << found << std::endl; 
+                //std::cout << "counter wynosi " << counter << " w " << found << std::endl; 
             }
 
             if(linijka.find("}") != std::string::npos){
                 --counter;
-                std::cout << "counter wynosi " << counter << " w " << found << std::endl;
+                //std::cout << "counter wynosi " << counter << " w " << found << std::endl;
                 
             }
 
             counter2++;
+        }
         }
         }
 

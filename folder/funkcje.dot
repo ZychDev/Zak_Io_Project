@@ -1,0 +1,17 @@
+digraph files_graph
+{
+"Graph"->"wyszukiwanie"
+"Graph"->"Save_In_File_Files"
+"Graph"->"Save_In_File_Func"
+"Graph"->"Save_In_File_Namespac"
+"Graph"->"map_string_double_TO_string"
+"Save_In_File_Files"->"exec"
+"Save_In_File_Func"->"exec"
+"Save_In_File_Namespac"->"exec"
+"main"->"listing"
+"main"->"listing"
+"main"->"wyszukiwanie2"
+"main"->"listing"
+"main"->"wyszukiwanie2"
+"main"->"graf_pliki_funkcje"
+}

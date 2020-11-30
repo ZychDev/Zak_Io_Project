@@ -5,17 +5,12 @@
 #include<fstream>
 #include<string>
 #include<list>
-#include"search2.cpp"
 
-//globalne struktury przechowujace strukture funkcji 
-extern std::vector<std::string> lista;
-extern std::map<std::string, std::list<std::string>> struktura;
 
 //funkcja wyszukujaca miejsca w plikach z #include oraz 
 //wyłuskująca nazwy zaincludowanych plikow
 std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(std::map<std::string, double> pliki) {
 
-    DODAWANIE();
 
     std::map<std::string, std::vector<std::pair<std::string,double>>>  mapaa;
 
@@ -51,7 +46,6 @@ std::map<std::string, std::vector<std::pair<std::string,double>>> wyszukiwanie(s
   }
             //macro do listowania funkcji
 
-            MAPA();
 
     return mapaa;
     

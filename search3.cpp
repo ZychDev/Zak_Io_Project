@@ -6,15 +6,12 @@
 #include <algorithm>
 #include <vector>
 #include <fstream>
-#include "search2.cpp"
+
 extern std::vector<std::string>lista_nam;
 extern std::map<std::string, std::vector<std::string>> lista_namesapce;
-
 std::vector<std::string>lista_nam_final;
-
 void segreg_nam()
 {
-    DODAWANIE();
 
     for(int i = 0; i<lista_nam.size() ; ++i)
     {
@@ -46,5 +43,4 @@ void segreg_nam()
         }
     }
 
-    MAPA();
 }

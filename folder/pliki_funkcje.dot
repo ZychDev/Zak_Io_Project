@@ -1,0 +1,10 @@
+digraph files_graph
+{
+"graph.cpp"->"Graph"
+->"wyszukiwanie"->"Save_In_File_Files"->"Save_In_File_Func"->"Save_In_File_Namespac"->"map_string_double_TO_string"->"map_second_element_on_list_string"->"pliki_fun"->"Save_File_Func""graph.cpp"->"Save_File_Func"
+->"exec""graph.cpp"->"Save_In_File_Files"
+->"exec""graph.cpp"->"Save_In_File_Func"
+->"exec""graph.cpp"->"Save_In_File_Namespac"
+->"exec""main.cpp"->"Graph"
+->"wyszukiwanie"->"Save_In_File_Files"->"Save_In_File_Func"->"Save_In_File_Namespac"->"map_string_double_TO_string"->"map_second_element_on_list_string"->"pliki_fun"->"Save_File_Func""main.cpp"->"main"
+->"listing"->"listing"->"wyszukiwanie2"->"listing"->"wyszukiwanie2"->"graf_pliki_funkcje"}

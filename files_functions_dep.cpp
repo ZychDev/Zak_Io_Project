@@ -1,9 +1,10 @@
 #include <string>
 #include <iostream>
-#include <list>
+#include <vector>
 #include <map>
+#include<list>
 
-std::map< std::string, std::map<std::string, std::list<std::string>>> pliki_fun(std::list<std::string> pliki, std::map< std::string, std::list<std::string >> mapa_fun) 
+std::map< std::string, std::map<std::string, std::list<std::string>>> pliki_fun(std::vector<std::string> pliki, std::map< std::string, std::list<std::string >> mapa_fun) 
 {
     std::map< std::string, std::map<std::string, std::list<std::string>>> mapa;
 
@@ -23,7 +24,6 @@ std::map< std::string, std::map<std::string, std::list<std::string>>> pliki_fun(
                 {
                     if (miejsce != std::string::npos)
                     {
-
                         mapa[*it][iter->first] = iter->second;
                     }
                 }
