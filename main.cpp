@@ -61,7 +61,7 @@ int main()
                 std::cout<<"Klucz: "<<i->first<<std::endl;
                 for(auto j = i->second.begin() ; j != i->second.end() ; ++j)
                 {
-                    
+                    std::cout<<*j<<std::endl;
                 }
 
             }
