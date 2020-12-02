@@ -23,25 +23,52 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie_name(std::map<std::
     {
         std::string linijka;
         getline(plik, linijka);
-        std::string szukany = "::";
+        std::string szukany = "namespace "; // ::
         size_t miejsce = linijka.find(szukany);
-
+        
+        
+      
         if (miejsce != std::string::npos)
             {
+              
+              std::string szukany2 = "std";
+              size_t miejsce2 = linijka.find(szukany2);
+              if (miejsce2 != std::string::npos)
+              {
+              }
+              else
+              {
+                std::string s = linijka;
+                std::string delimiter = " ";
 
-              //pominiecie pliku wykonywalnego
-              if(it->first == "a.out")
-              {break;}
+                size_t pos = 0;
+                std::string token;
+                while ((pos = s.find(delimiter)) != std::string::npos)
+                {
+                  token = s.substr(0, pos);
+                  //std::cout << token << std::endl;
+                  s.erase(0, pos + delimiter.length());
+                }
+                if(s != "namespace")
+                {
+                  std::cout << s << std::endl;
+                  if(it->first == "a.out")
+                  {break;}
+                  mapa[it->first].push_back(s);         
 
-              //push'owanie nazwy pliku do mapy pod kluczem 
-              //nazwy pliku, w ktorym zanjduje sie petla
-              mapa[it->first].push_back(linijka);         
+
+                }
+              }
+              
+              
+
+              
+                 
             }
 
     }
      
   }
-            //macro do listowania funkcji
 
 
     return mapa;

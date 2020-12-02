@@ -24,7 +24,6 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::stri
     for (auto it = pliki.begin(); it != pliki.end(); ++it) {
         if(it->first == "a.out")
         {
-            std::cout<<"znikaj"<<std::endl;
         }
         else
         {

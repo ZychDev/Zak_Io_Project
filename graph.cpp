@@ -9,6 +9,18 @@
 #include<algorithm>
 #include<cstring>
 #include"files_functions_dep.cpp"
+#include <fstream>
+#include <sys/stat.h>
+
+namespace cztery
+{
+    void wyswietl()
+    {
+        std::cout<<"Hi"<<std::endl;
+    }
+}
+
+
 class Graph{
     
     public:
@@ -30,13 +42,13 @@ class Graph{
         }
 
         //3.Namespace
-        /*
-        Graph(std::map<std::string, std::vector<std::string>> names)
+        
+        Graph(std::vector<std::string>names)
         {
-            std::string name = "namespace.dot";
-            Save_In_File_Namespac(name ,names);
+            std::string name = "names.dot";
+            Save_File_n(names , name);
         };
-*/
+
 
         //4.Pliki - Funckje
         Graph(std::map<std::string, double> pliki , std::map<std::string, std::vector<std::string>> struktura)
@@ -69,7 +81,39 @@ class Graph{
            
 
         }
+        void Save_File_n(std::vector<std::string>vec, std::string name)
+        {
+            //std::ofstream file(name);
+            std::ofstream file("./folder/" + name);
 
+            file << "digraph files_graph\n{\n";
+
+            for(auto i = vec.begin() ; i != vec.end() ; ++i)
+            {
+                if(*i != ".")
+                {
+                    file<<'"'<<*i<<'"'<<"->";
+                }
+                else
+                {
+                    long pos = file.tellp();
+                    file.seekp(pos-2);
+                    file.write("",2);
+                    file<<std::endl;
+
+                }
+                
+            }
+            file << "}";
+            file.close();
+            std::string word = "dot -Tpng -O ./folder/" + name;
+            int n = word.length();
+            char array[n];
+            strcpy(array, word.c_str());
+
+            exec(array);
+
+        }
         std::vector<std::string> map_string_double_TO_string(std::map<std::string, double> pliki)
         {
             std::vector<std::string> tmp;
@@ -151,73 +195,92 @@ class Graph{
             exec(array);
         }
 
-        void Save_In_File_Func(std::map<std::string, std::vector<std::string>> l, std::string name)
-        {            
-            //std::ofstream file(name);
-            std::ofstream file("./folder/"+name);
-
-            file << "digraph files_graph\n{\n";
-
-            for (auto i = l.begin(); i != l.end(); ++i) 
-            {
-                    for(auto j=i->second.begin(); j!=i->second.end() ; ++j)
-                    {
-                        if( *j != "")
-                        {
-                            file<<"\""<<i->first<<"\""<<"->"<<"\""<<*j<<"\""<<std::endl;
-                            std::cout<<i->first<< "->"<< *j <<std::endl;
-                        }
-                    }
-                 
-            }
-                file << "}";
-                file.close();
-                std::string word = "dot -Tpng -O ./folder/" + name;
-                int n = word.length();
-                char array[n];
-                strcpy(array , word.c_str());
-
-            exec(array);
-        }
-
-
-
-        void Save_In_File_Files(std::map<std::string, std::vector<std::pair<std::string,double>>> l,std::map<std::string, double> x , std::string name)
+        int fileExists(const char *fileName)
         {
-            std::ofstream file("./folder/"+name);
-            file << "digraph files_graph\n{\n";
-            for (auto i = l.begin(); i != l.end(); ++i) 
+            FILE *plik;
+            plik = fopen(fileName, "r"); /* ważne, by nie tworzyć pliku, jeśli nie istnieje, tryb "r" (tylko odczyt) */
+            if (plik)
             {
-                if(i->first != "a.out")
+                fclose(plik);
+                return 1;
+            }
+            fclose(plik);
+            return 0;
+        }
+
+        bool FileExists(std::string filename)
+        {
+            struct stat fileInfo;
+            return stat(filename.c_str(), &fileInfo) == 0;
+        }
+
+    void Save_In_File_Func(std::map<std::string, std::vector<std::string>> l, std::string name)
+    {
+        //std::ofstream file(name);
+        //sprawdzanie czy taki plik istnieje z ta nazwa
+        
+        std::ofstream file("./folder/" + name);
+
+        file << "digraph files_graph\n{\n";
+
+        for (auto i = l.begin(); i != l.end(); ++i)
+        {
+            for (auto j = i->second.begin(); j != i->second.end(); ++j)
+            {
+                if (*j != "")
                 {
-                    for(auto j=i->second.begin(); j!=i->second.end() ; ++j)
+                    file << "\"" << i->first << "\""
+                         << "->"
+                         << "\"" << *j << "\"" << std::endl;
+                    std::cout << i->first << "->" << *j << std::endl;
+                }
+            }
+        }
+        file << "}";
+        file.close();
+        std::string word = "dot -Tpng -O ./folder/" + name;
+        int n = word.length();
+        char array[n];
+        strcpy(array, word.c_str());
+
+        exec(array);
+    }
+
+    void Save_In_File_Files(std::map<std::string, std::vector<std::pair<std::string, double>>> l, std::map<std::string, double> x, std::string name)
+    {
+        std::ofstream file("./folder/" + name);
+        file << "digraph files_graph\n{\n";
+        for (auto i = l.begin(); i != l.end(); ++i)
+        {
+            if (i->first != "a.out")
+            {
+                for (auto j = i->second.begin(); j != i->second.end(); ++j)
+                {
+                    for (auto n = x.begin(); n != x.end(); ++n)
                     {
-                        for(auto n = x.begin() ; n != x.end() ; ++n)
+
+                        if (n->first == i->first)
                         {
-
-
-                            if(n->first == i->first)
-                            {
-                                int value = n->second;
-                                std::string f_str = std::to_string (value);
-                                file << '"' << j->first<< "->" << '"'<<i->first   << '"' << "[taillabel = "+std::to_string (value)+"]"<< "[label = 1]"<< "\n";
-                            }
-
+                            int value = n->second;
+                            std::string f_str = std::to_string(value);
+                            file << '"' << j->first << "->" << '"' << i->first << '"' << "[taillabel = " + std::to_string(value) + "]"
+                                 << "[label = 1]"
+                                 << "\n";
                         }
                     }
-                 }
+                }
             }
-
-                file << "}";
-                file.close();
-                std::string word = "dot -Tpng -O ./folder/" + name;
-                int n = word.length();
-                char array[n];
-                strcpy(array , word.c_str());
-
-            exec(array);
-
         }
+
+        file << "}";
+        file.close();
+        std::string word = "dot -Tpng -O ./folder/" + name;
+        int n = word.length();
+        char array[n];
+        strcpy(array, word.c_str());
+
+        exec(array);
+    }
 
     std::string exec(const char* cmd) 
     {
