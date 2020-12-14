@@ -1,23 +1,24 @@
-#include<iostream>
-#include<list>
-#include<map>
-#include<vector>
-#include<fstream>
-#include<string>
+#include <iostream>
+#include <list>
+#include <map>
+#include <vector>
+#include <fstream>
+#include <string>
 #include <sstream>
 #include <stdio.h>
 
-#include<stdlib.h>
-#include<stdexcept>
-#include<algorithm>
-#include<cstring>
+#include <stdlib.h>
+#include <stdexcept>
+#include <algorithm>
+#include <cstring>
 #include <sys/stat.h>
 
-//funkcja wyszukujaca miejsca w plikach z #include oraz 
+//funkcja wyszukujaca miejsca w plikach z #include oraz
 //wyłuskująca nazwy zaincludowanych plikow
-std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pliki) {
+std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pliki)
+{
 
-    std::map<std::string, std::vector<std::string>>  mapa;
+    std::map<std::string, std::vector<std::string>> mapa;
     std::vector<std::string> test;
     //iteracja po liscie plikow
     for (auto it = pliki.begin(); it != pliki.end(); ++it)
@@ -44,8 +45,6 @@ std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pl
                 else
                 {
 
-                    
-
                     std::string s = linijka;
                     std::string delimiter = "::";
 
@@ -56,8 +55,9 @@ std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pl
                         token = s.substr(0, pos);
                         s.erase(0, pos + delimiter.length());
                         std::string x = token;
+                        //remove blank space 
+	                    x.erase(remove(x.begin(), x.end(), ' '), x.end());
 
-                 
                         test.push_back(x);
                     }
                     test.push_back(s);
@@ -67,17 +67,13 @@ std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pl
         }
     }
 
+    //wyswietlanie vectora ciagow zwiaznaych z names
+    std::cout<<"Vecotr names oraz funcji z nim zwiazanych "<<std::endl;
+    for(auto i = test.begin(); i != test.end(); ++i)
+    {
+        std::cout << *i << std::endl;
 
-//show vector
-   
-
-    //split vector 
-       
-    
-for(auto i = test.begin() ; i != test.end() ; ++i)
-{
-    std::cout<<*i<<std::endl;
-}
+    }
 
     return test;
 }

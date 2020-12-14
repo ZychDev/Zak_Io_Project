@@ -1,10 +1,11 @@
 digraph files_graph
 {
-"search_include.cpp"->"graph.cpp"[taillabel = 8192][label = 1]
-"files_functions_dep.cpp"->"graph.cpp"[taillabel = 8192][label = 1]
-"graph.cpp"->"main.cpp"[taillabel = 2719][label = 1]
-"listing.cpp"->"main.cpp"[taillabel = 2719][label = 1]
-"search3.cpp"->"main.cpp"[taillabel = 2719][label = 1]
-"search_func_nam.cpp"->"main.cpp"[taillabel = 2719][label = 1]
-"search_namespace.cpp"->"main.cpp"[taillabel = 2719][label = 1]
+"search_include.cpp"->"graph.cpp"[taillabel = 8538][label = 1]
+"files_functions_dep.cpp"->"graph.cpp"[taillabel = 8538][label = 1]
+"graph.cpp"->"main.cpp"[taillabel = 3086][label = 1]
+"listing.cpp"->"main.cpp"[taillabel = 3086][label = 1]
+"search3.cpp"->"main.cpp"[taillabel = 3086][label = 1]
+"search_func_nam.cpp"->"main.cpp"[taillabel = 3086][label = 1]
+"search_namespace.cpp"->"main.cpp"[taillabel = 3086][label = 1]
+"s_names_names.cpp"->"main.cpp"[taillabel = 3086][label = 1]
 }
