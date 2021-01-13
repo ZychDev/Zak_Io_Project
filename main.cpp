@@ -2,12 +2,10 @@
 #include "graph.cpp"
 #include "listing.cpp"
 #include <list>
-#include "search3.cpp"
 #include "search_func_nam.cpp"
 #include <string>
 #include "search_namespace.cpp"
 #include "s_names_names.cpp"
-#include "files_functions.cpp"
 std::vector<std::string> lista_nam;
 std::map<std::string, std::vector<std::string>> lista_namesapce;
 namespace jeden
@@ -29,10 +27,19 @@ namespace trzy
     }
 } // namespace trzy
 
+
+
+
+
+
+
 int main()
 {
+    std::cout << "Hello enter path to folder with program " << std::endl;
+    std::string path;
+    std::cin>>path;
 
-    std::cout << "Hello choose the graph you are interested in " << std::endl;
+    std::cout << "Choose the graph you are interested in " << std::endl;
     std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje \n5.Pliki - Namespaces" << std::endl;
 
     int choice;
@@ -42,13 +49,13 @@ int main()
     {
     case 1:
     {
-        std::map<std::string, double> x = listing();
+        std::map<std::string, double> x = listing(path);
         Graph graf_plikow(x);
         break;
     }
     case 2:
     {
-        std::map<std::string, double> x = listing();
+        std::map<std::string, double> x = listing(path);
         trzy::wyswietl();
         jeden::dwa::wyswietl2();
         std::vector<std::string> z = wyszukiwanie_name_ciag(x);
@@ -59,14 +66,14 @@ int main()
     case 3:
     {
 
-        std::map<std::string, double> x = listing();
+        std::map<std::string, double> x = listing(path);
         std::map<std::string, std::vector<std::string>> z = wyszukiwanie2(x);
         Graph graf_funkcji(z);
         break;
     }
     case 4:
     {
-        std::map<std::string, double> x = listing();
+        std::map<std::string, double> x = listing(path);
         std::map<std::string, std::vector<std::string>> z = wyszukiwanie2(x);
         std::map<std::string, std::vector<std::string>> tmp;
 
@@ -97,7 +104,7 @@ int main()
     }
     case 5:
     {
-        std::map<std::string, double> x = listing();
+        std::map<std::string, double> x = listing(path);
         trzy::wyswietl();
         std::map<std::string, std::vector<std::string>> z = wyszukiwanie_name(x);
         for (auto i = z.begin(); i != z.end(); ++i)

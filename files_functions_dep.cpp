@@ -4,9 +4,9 @@
 #include <map>
 #include <list>
 
-std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(std::vector<std::string> pliki, std::map<std::string, std::list<std::string>> mapa_fun)
+std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(std::vector<std::string> pliki, std::map<std::string, std::list<std::string>> mapa_funkcji)
 {
-    std::map<std::string, std::map<std::string, std::list<std::string>>> mapa;
+    std::map<std::string, std::map<std::string, std::list<std::string>>> mapaa;
 
     for (auto it = pliki.begin(); it != pliki.end(); ++it)
     {
@@ -17,7 +17,7 @@ std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(s
         {
             std::string linijka;
             getline(plik, linijka);
-            for (auto iter = mapa_fun.begin(); iter != mapa_fun.end(); iter++)
+            for (auto iter = mapa_funkcji.begin(); iter != mapa_funkcji.end(); iter++)
             {
                 std::string szukany = iter->first;
                 size_t miejsce = linijka.find(szukany);
@@ -26,7 +26,7 @@ std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(s
                 {
                     if (miejsce != std::string::npos)
                     {
-                        mapa[*it][iter->first] = iter->second;
+                        mapaa[*it][iter->first] = iter->second;
                     }
                 }
             }
@@ -41,7 +41,7 @@ std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(s
             //std::cout << "Szukany ten pojedynczy: ";
             std::string linijka;
             getline(plik, linijka);
-            for (auto iter = mapa_fun.begin(); iter != mapa_fun.end(); iter++)
+            for (auto iter = mapa_funkcji.begin(); iter != mapa_funkcji.end(); iter++)
             {
                 for (auto j = iter->second.begin(); j != iter->second.end(); ++j)
                 {
@@ -53,7 +53,7 @@ std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(s
                     {
                         if (miejsce != std::string::npos)
                         {
-                            mapa[*it][*j];
+                            mapaa[*it][*j];
                         }
                     }
                 }
@@ -61,5 +61,5 @@ std::map<std::string, std::map<std::string, std::list<std::string>>> pliki_fun(s
         }
     }
 
-    return mapa;
+    return mapaa;
 }

@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <list>
+
 std::map<std::string , std::vector<std::string>szukanie_names_func(std::vector<std::string> pliki, std::map<std::string, std::list<std::string>> mapa_fun)
 {
     std::map<std::string, std::map<std::string, std::list<std::string>>> mapa;

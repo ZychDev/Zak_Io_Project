@@ -5,13 +5,11 @@
 #include <map>
 
 //funkcja listujaca wszystkie pliki w wybranym przez uzytkownika folderze
-std::map<std::string, double> listing()
+std::map<std::string, double> listing(std::string sciezka)
 {
     //deklaracja zmiennych i przyjecie sciezki od uzytkownika
     std::map<std::string, double> map_name_size;
-    std::string sciezka;
-    std::cout << "Podaj sciezke do folderu " << std::endl;
-    std::cin >> sciezka;
+    
     //iteracja po folderze oraz wyłuskanie nazw plikow
     for (auto &entry : std::filesystem::directory_iterator(sciezka))
     {

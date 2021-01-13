@@ -76,7 +76,7 @@ public:
     {
         std::vector<std::string> files = map_string_double_TO_string(pliki);
         std::map<std::string, std::list<std::string>> functions = map_second_element_on_list_string(struktura);
-        std::map<std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);
+        std::map<std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);//tutaj uzywamy pliki_fun
         std::string name = "pliki_funkcje.dot";
         Save_File_Func(combine, name);
     }
