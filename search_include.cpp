@@ -6,8 +6,10 @@
 #include <string>
 #include <list>
 
-//funkcja wyszukujaca miejsca w plikach z #include oraz
+//CEL
+//funkcja wyszukujaca miejsca w plikach z "#include" oraz
 //wyłuskująca nazwy zaincludowanych plikow
+
 std::map<std::string, std::vector<std::pair<std::string, double>>> wyszukiwanie(std::map<std::string, double> pliki)
 {
 

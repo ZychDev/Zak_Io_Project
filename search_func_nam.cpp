@@ -7,6 +7,9 @@
 #include <list>
 #include <regex>
 
+//CEL
+//Funkcja ma na celu wyszukanie funkcji w danym pliku poprzez regexa
+
 std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::string, double> pliki)
 {
 

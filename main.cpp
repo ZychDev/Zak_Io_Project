@@ -1,11 +1,18 @@
 #include <iostream>
+#include <list>
+#include <string>
+//przypiete pliki
 #include "graph.cpp"
 #include "listing.cpp"
-#include <list>
 #include "search_func_nam.cpp"
-#include <string>
 #include "search_namespace.cpp"
 #include "s_names_names.cpp"
+
+//CEL
+//Program glowny ktory ma opcje wybory rysowanego grafu
+//tutaj sa tworzone klasy graph 
+//momentami przed stworzeniem klasy trzeba lekko edytowac niektore struktury dlatego jest pare linijek kodu wiecej typu "czyszczenie struktur"
+
 std::vector<std::string> lista_nam;
 std::map<std::string, std::vector<std::string>> lista_namesapce;
 namespace jeden

@@ -4,7 +4,9 @@
 #include <list>
 #include <map>
 
+//CEL
 //funkcja listujaca wszystkie pliki w wybranym przez uzytkownika folderze
+
 std::map<std::string, double> listing(std::string sciezka)
 {
     //deklaracja zmiennych i przyjecie sciezki od uzytkownika

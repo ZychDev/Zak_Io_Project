@@ -6,8 +6,10 @@
 #include <string>
 #include <list>
 
-//funkcja wyszukujaca miejsca w plikach z #include oraz
+//CEL
+//funkcja wyszukujaca miejsca w plikach z "namespace" oraz
 //wyłuskująca nazwy zaincludowanych plikow
+
 std::map<std::string, std::vector<std::string>> wyszukiwanie_name(std::map<std::string, double> pliki)
 {
 
@@ -55,6 +57,7 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie_name(std::map<std::
               break;
             }
             mapa[it->first].push_back(s);
+            std::cout<<it->first<<"druga: "<<s<<std::endl;
           }
         }
       }

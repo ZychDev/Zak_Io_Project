@@ -1,0 +1,12 @@
+digraph files_graph
+{
+"graph.cpp"->"cztery"
+"graph.cpp"->"cztery"
+"main.cpp"->"jeden"
+"main.cpp"->"dwa"
+"main.cpp"->"dwa"
+"main.cpp"->"jeden"
+"main.cpp"->"trzy"
+"main.cpp"->"trzy"
+"s_names_names.cpp"->"takze"
+}

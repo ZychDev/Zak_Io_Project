@@ -6,15 +6,17 @@
 #include <string>
 #include <sstream>
 #include <stdio.h>
-
 #include <stdlib.h>
 #include <stdexcept>
 #include <algorithm>
 #include <cstring>
 #include <sys/stat.h>
 
-//funkcja wyszukujaca miejsca w plikach z #include oraz
+//CEL
+//funkcja wyszukujaca miejsca w plikach z "namespace" oraz
 //wyłuskująca nazwy zaincludowanych plikow
+//ta funkcja siega gleboko do namespace czyli sprawdza jakie ma funkcje w sobie takze
+
 std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pliki)
 {
 

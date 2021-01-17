@@ -1,16 +1,20 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "search_include.cpp"
 #include <stdexcept>
 #include <string>
 #include <sstream>
 #include <list>
 #include <algorithm>
 #include <cstring>
-#include "files_functions_dep.cpp"
 #include <fstream>
 #include <sys/stat.h>
+//przypiete pliki
+#include "search_include.cpp"
+#include "files_functions_dep.cpp"
+
+//CEL
+//Klasa graph odpowiada za przerozne przerobki oraz finalne zapisanie struktur aby byly widoczne w formacie png 
 
 namespace cztery
 {
@@ -20,8 +24,7 @@ namespace cztery
     }
 } // namespace cztery
 
-class Graph
-{
+class Graph{ // nie ruszac tego 
 
 public:
     //1.Pliki
