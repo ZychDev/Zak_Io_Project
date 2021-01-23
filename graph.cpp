@@ -11,8 +11,8 @@
 #include <sys/stat.h>
 //przypiete pliki
 #include "search_include.cpp"
-#include "files_functions_dep.cpp"
-
+//#include "files_functions_dep.cpp"
+//#include "convert.cpp"
 //CEL
 //Klasa graph odpowiada za przerozne przerobki oraz finalne zapisanie struktur aby byly widoczne w formacie png 
 
@@ -25,7 +25,6 @@ namespace cztery
 } // namespace cztery
 
 class Graph{ // nie ruszac tego 
-
 public:
     //1.Pliki
     Graph(std::map<std::string, double> Files)
@@ -34,16 +33,11 @@ public:
         l = wyszukiwanie(Files);
         std::map<std::string, double> x = Files;
         std::string name = "pliki.dot";
-
-        for (auto i = l.begin(); i != l.end(); ++i)
-        {
-        }
-
         Save_In_File_Files(l, x, name);
     };
 
     //2.Funkcje
-    //tutaj tez jest plilli - name
+    //tutaj tez jest files - name
     Graph(std::map<std::string, std::vector<std::string>> struktura)
     {
         std::string name = "funkcje.dot";
@@ -75,11 +69,13 @@ public:
     };
 
     //4.Pliki - Funckje
-    Graph(std::map<std::string, double> pliki, std::map<std::string, std::vector<std::string>> struktura)
+    Graph(std::map<std::string, std::map<std::string, std::list<std::string>>> combine)
     {
+        /*
         std::vector<std::string> files = map_string_double_TO_string(pliki);
         std::map<std::string, std::list<std::string>> functions = map_second_element_on_list_string(struktura);
         std::map<std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);//tutaj uzywamy pliki_fun
+        */
         std::string name = "pliki_funkcje.dot";
         Save_File_Func(combine, name);
     }
@@ -113,32 +109,7 @@ public:
 
         exec(array);
     }
-    std::vector<std::string> map_string_double_TO_string(std::map<std::string, double> pliki)
-    {
-        std::vector<std::string> tmp;
-        for (auto i = pliki.begin(); i != pliki.end(); ++i)
-        {
-            tmp.push_back(i->first);
-        }
-
-        return tmp;
-    }
-
-    std::map<std::string, std::list<std::string>> map_second_element_on_list_string(std::map<std::string, std::vector<std::string>> funkcje)
-    {
-
-        std::map<std::string, std::list<std::string>> tmp;
-
-        for (auto i = funkcje.begin(); i != funkcje.end(); ++i)
-        {
-            for (auto j = i->second.begin(); j != i->second.end(); ++j)
-            {
-                tmp[i->first].push_back(*j);
-            }
-        }
-
-        return tmp;
-    }
+    
     void Save_File_Func(std::map<std::string, std::map<std::string, std::list<std::string>>> combine, std::string name)
     {
         //std::ofstream file(name);
@@ -227,7 +198,6 @@ public:
                     file << "\"" << i->first << "\""
                          << "->"
                          << "\"" << *j << "\"" << std::endl;
-                    std::cout << i->first << "->" << *j << std::endl;
                 }
             }
         }

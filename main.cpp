@@ -7,7 +7,9 @@
 #include "search_func_nam.cpp"
 #include "search_namespace.cpp"
 #include "s_names_names.cpp"
-
+#include "Mateusz_name_fun.cpp"
+#include "convert.cpp"
+#include "files_functions_dep.cpp"
 //CEL
 //Program glowny ktory ma opcje wybory rysowanego grafu
 //tutaj sa tworzone klasy graph 
@@ -21,7 +23,7 @@ namespace jeden
     {
         void wyswietl2()
         {
-            std::cout << "Hi 2 " << std::endl;
+            std::cout << "TRUE" << std::endl;
         }
     } // namespace dwa
 } // namespace jeden
@@ -30,7 +32,7 @@ namespace trzy
 {
     void wyswietl()
     {
-        std::cout << "Hi" << std::endl;
+        std::cout << "FALSE" << std::endl;
     }
 } // namespace trzy
 
@@ -45,7 +47,6 @@ int main()
     std::cout << "Hello enter path to folder with program " << std::endl;
     std::string path;
     std::cin>>path;
-
     std::cout << "Choose the graph you are interested in " << std::endl;
     std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje \n5.Pliki - Namespaces" << std::endl;
 
@@ -87,7 +88,6 @@ int main()
         //oczyszczenie mapy jasia
         for (auto i = z.begin(); i != z.end(); ++i)
         {
-            //std::cout<<"Klucz: "<<i->first<<std::endl;
             for (auto j = i->second.begin(); j != i->second.end(); ++j)
             {
                 if (i->first != " " && *j != " " && *j != "")
@@ -96,17 +96,12 @@ int main()
                 }
             }
         }
-
-        for (auto i = tmp.begin(); i != tmp.end(); ++i)
-        {
-            //std::cout << "Klucz: " << i->first << std::endl;
-            for (auto j = i->second.begin(); j != i->second.end(); ++j)
-            {
-                //std::cout << *j << std::endl;
-            }
-        }
-
-        Graph graf_pliki_funkcje(x, tmp);
+        
+        std::vector<std::string> files = map_string_double_TO_string(x);
+        std::map<std::string, std::list<std::string>> functions = map_second_element_on_list_string(tmp);
+        std::map<std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);
+        
+        Graph graf_pliki_funkcje(combine);
         break;
     }
     case 5:
@@ -114,23 +109,36 @@ int main()
         std::map<std::string, double> x = listing(path);
         trzy::wyswietl();
         std::map<std::string, std::vector<std::string>> z = wyszukiwanie_name(x);
-        for (auto i = z.begin(); i != z.end(); ++i)
-        {
-            std::cout << i->first << ":   ";
-            for (auto j = i->second.begin(); j != i->second.end(); ++j)
-            {
-                std::cout << *j << " , ";
-            }
-            std::cout << std::endl;
-        }
-
         Graph graf_namespace_pliki(z);
         break;
     }
     case 6:
     {
         std::cout<<"Funkcje - Namespace"<<std::endl;
+        std::map<std::string, double> y = listing(path);
+        std::map<std::string, std::vector<std::string>> c = wyszukiwanie2(y);
+        std::map<std::string, std::vector<std::string>> tmp;
 
+        //oczyszczenie mapy jasia
+        for (auto i = c.begin(); i != c.end(); ++i)
+        {
+            for (auto j = i->second.begin(); j != i->second.end(); ++j)
+            {
+                if (i->first != " " && *j != " " && *j != "")
+                {
+                    tmp[i->first].push_back(*j);
+                }
+            }
+        }
+        
+        std::vector<std::string> files = map_string_double_TO_string(y);
+        std::map<std::string, std::list<std::string>> functions = map_second_element_on_list_string(tmp);
+        std::map<std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);
+
+        
+
+        function_namespce_functions(combine);
+        
         break;
     }
     default:

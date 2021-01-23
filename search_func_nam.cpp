@@ -64,13 +64,11 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie2(std::map<std::stri
                 if (linijka.find("{") != std::string::npos && linijka.find("class") == std::string::npos)
                 {
                     ++counter;
-                    //std::cout << "counter wynosi " << counter << " w " << found << std::endl;
                 }
 
                 if (linijka.find("}") != std::string::npos)
                 {
                     --counter;
-                    //std::cout << "counter wynosi " << counter << " w " << found << std::endl;
                 }
 
                 counter2++;

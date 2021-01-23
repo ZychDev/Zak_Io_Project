@@ -26,7 +26,6 @@ std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pl
     for (auto it = pliki.begin(); it != pliki.end(); ++it)
     {
 
-        int counter = 0;
         std::ifstream plik(it->first);
 
         //przeszukiwanie linijka po linijce
@@ -68,14 +67,5 @@ std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pl
             }
         }
     }
-
-    //wyswietlanie vectora ciagow zwiaznaych z names
-    std::cout<<"Vecotr names oraz funcji z nim zwiazanych "<<std::endl;
-    for(auto i = test.begin(); i != test.end(); ++i)
-    {
-        std::cout << *i << std::endl;
-
-    }
-
     return test;
 }

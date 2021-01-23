@@ -46,18 +46,15 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie_name(std::map<std::
           while ((pos = s.find(delimiter)) != std::string::npos)
           {
             token = s.substr(0, pos);
-            //std::cout << token << std::endl;
             s.erase(0, pos + delimiter.length());
           }
           if (s != "namespace")
           {
-            std::cout << s << std::endl;
             if (it->first == "a.out")
             {
               break;
             }
             mapa[it->first].push_back(s);
-            std::cout<<it->first<<"druga: "<<s<<std::endl;
           }
         }
       }

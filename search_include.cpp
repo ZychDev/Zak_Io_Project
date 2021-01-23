@@ -42,7 +42,6 @@ std::map<std::string, std::vector<std::pair<std::string, double>>> wyszukiwanie(
         //push'owanie nazwy pliku do mapy pod kluczem
         //nazwy pliku, w ktorym zanjduje sie petla
         mapaa[it->first].push_back(std::make_pair(nazwa_pliku, it->second));
-        std::cout << "Funkcja search: " << nazwa_pliku << std::endl;
       }
     }
   }

@@ -1,78 +1,97 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-void function_namespce_functions()
+
+void function_namespce_functions(std::map<std::string, std::map<std::string, std::list<std::string>>> combine)
 {
-    std::vector<std::pair<std::string,std::string>> test;
+    std::vector<std::pair<std::string, std::string>> test;
+    std::map<std::string  , std::string> plik_funkcja;
+
     int counter_open = 0;
     int counter_close = 0;
 
-    std::string name = "listing.cpp";
-
-    std::ifstream file(name);
-    if (file.is_open())
+    for (auto i = combine.begin(); i != combine.end(); ++i)
     {
-        std::string line;
-        std::string search = "listing"; // najpierw szukam nazwy funkcji
-        while (std::getline(file, line))
+        std::cout<<"Plik: "<<i->first<<std::endl;
+        for (auto j = i->second.begin(); j != i->second.end(); ++j)
         {
-            size_t miejsce = line.find(search);
-            if (miejsce != std::string::npos)
+            std::cout<<"Funkcja1: "<<j->first<<std::endl;
+            std::cout<<"Funkcja w sodku: "<<*j->second.begin();
+            
+        }
+    }
+
+    //przechodzenie po funkcjach
+    
+    for (auto i = combine.begin(); i != combine.end(); ++i)
+    {
+        
+        std::cout<<"NAZWA PLIKU: "<<i->first<<std::endl;
+        std::string name = i->first;
+
+        std::ifstream file(name);
+        if (file.is_open())
+        {
+            std::string line;
+            std::string search = "main()"; // najpierw szukam nazwy funkcji
+            while (std::getline(file, line))
             {
-                std::cout << "Znalazlem Funckje: " << line << std::endl;
-
-                std::string search2 = "{";
-                while (std::getline(file, line))
+                size_t miejsce = line.find(search);
+                if (miejsce != std::string::npos)
                 {
-                    size_t miejsce2 = line.find(search2);
-                    if (miejsce2 != std::string::npos)
+                    std::cout << "Znalazlem Funckje: " << line << std::endl;
+
+                    std::string search2 = "{";
+                    while (std::getline(file, line))
                     {
-
-                        //znalazlem otwarcie wiec przeszukam je w poszukiwaniu names
-                        std::string search3 = "test";
-
-                        if (line.find("{") != std::string::npos)
+                        size_t miejsce2 = line.find(search2);
+                        if (miejsce2 != std::string::npos)
                         {
-                            ++counter_open;
 
-                            
-                            while (std::getline(file, line))
+                            //znalazlem otwarcie wiec przeszukam je w poszukiwaniu names
+                            std::string search3 = "wyswietl2";
+
+                            if (line.find("{") != std::string::npos)
                             {
-                                if (line.find("{") != std::string::npos)
-                                {
-                                    ++counter_open;
-                                }
-                                if (line.find("}") != std::string::npos)
-                                {
-                                    ++counter_close;
-                                    std::cout<<line<<std::endl;
-                                }
+                                ++counter_open;
 
-                                size_t miejsce3 = line.find(search3);
-                                if(miejsce3 != std::string::npos )
+                                while (std::getline(file, line))
                                 {
-                                    std::cout<<"Znalazłem Namespace: "<<line<<std::endl;
-                                    test.push_back(std::make_pair(search , line));
-                                    break;
+                                    if (line.find("{") != std::string::npos)
+                                    {
+                                        ++counter_open;
+                                    }
+                                    if (line.find("}") != std::string::npos)
+                                    {
+                                        --counter_open;
+                                        if (counter_open == 0)
+                                        {
+                                            break;
+                                        }
+                                        std::cout << line << std::endl;
+                                    }
 
+                                    size_t miejsce3 = line.find(search3);
+                                    if (miejsce3 != std::string::npos)
+                                    {
+                                        std::cout << "Znalazłem Namespace: " << line << std::endl;
+                                        test.push_back(std::make_pair(search, line));
+                                    }
                                 }
-                                
                             }
-                            
                         }
                     }
                 }
             }
-            
-        }
-        std::cout<<"Counter Close: "<<counter_close<<std::endl;
-        std::cout<<"Counter Open: "<<counter_open<<std::endl;
-        
-        for(auto i = test.begin() ; i != test.end() ; ++i)
-        {
-            std::cout<<i->first<<" And "<<i->second<<std::endl;
-        }
+            std::cout << "Counter Open: " << counter_open << std::endl;
 
-        file.close();
+            for (auto i = test.begin(); i != test.end(); ++i)
+            {
+                std::cout << i->first << " And " << i->second << std::endl;
+            }
+
+            file.close();
+        }
     }
 }
+
