@@ -10,17 +10,7 @@ void function_namespce_functions(std::map<std::string, std::map<std::string, std
     int counter_open = 0;
     int counter_close = 0;
 
-    for (auto i = combine.begin(); i != combine.end(); ++i)
-    {
-        std::cout<<"Plik: "<<i->first<<std::endl;
-        for (auto j = i->second.begin(); j != i->second.end(); ++j)
-        {
-            std::cout<<"Funkcja1: "<<j->first<<std::endl;
-            std::cout<<"Funkcja w sodku: "<<*j->second.begin();
-            
-        }
-    }
-
+   
     //przechodzenie po funkcjach
     
     for (auto i = combine.begin(); i != combine.end(); ++i)

@@ -4,8 +4,7 @@
 #include<vector>
 #include <fstream>
 #include <iostream>
-#include <bits/stdc++.h> 
-//#include"start_xml.txt"
+//#include <bits/stdc++.h>
 class paradigm_graph
 {
   private:
