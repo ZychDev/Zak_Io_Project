@@ -25,7 +25,6 @@ std::vector<std::string> wyszukiwanie_name_ciag(std::map<std::string, double> pl
     //iteracja po liscie plikow
     for (auto it = pliki.begin(); it != pliki.end(); ++it)
     {
-
         std::ifstream plik(it->first);
 
         //przeszukiwanie linijka po linijce

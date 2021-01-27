@@ -18,6 +18,7 @@ std::map<std::string, std::vector<std::string>> wyszukiwanie_name(std::map<std::
   //iteracja po liscie plikow
   for (auto it = pliki.begin(); it != pliki.end(); ++it)
   {
+    std::cout << it->first << std::endl;
     std::ifstream plik(it->first);
 
     //przeszukiwanie linijka po linijce
