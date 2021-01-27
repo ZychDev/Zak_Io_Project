@@ -1,6 +1,9 @@
 #include <iostream>
 #include <list>
 #include <string>
+
+#include <sys/stat.h>
+
 //przypiete pliki
 #include "graph.cpp"
 #include "listing.cpp"
@@ -11,10 +14,13 @@
 #include "convert.cpp"
 #include "files_functions_dep.cpp"
 #include "paradigm.cpp"
+#include "cyklo.cpp"
+
 //CEL
 //Program glowny ktory ma opcje wybory rysowanego grafu
 //tutaj sa tworzone klasy graph 
 //momentami przed stworzeniem klasy trzeba lekko edytowac niektore struktury dlatego jest pare linijek kodu wiecej typu "czyszczenie struktur"
+std::string exec(const char *cmd);
 
 std::vector<std::string> lista_nam;
 std::map<std::string, std::vector<std::string>> lista_namesapce;
@@ -59,6 +65,7 @@ int main()
     {
     case 1:
     {
+
         std::map<std::string, double> x = listing(path);
         Graph graf_plikow(x);
         break;
@@ -151,23 +158,41 @@ int main()
         paradigm_graph jeden;
         break;
 
-    }/*
+    }
     case 8:
     {
-        std::stringstream uchwyt; 
+        /*
+        std::vector<std::string> pliki;
+        std::map<std::string, double> x = listing(path);
 
-        uchwyt<<std::system("pmccabe -f search_func_nam.cpp");
-        std::string test = uchwyt.str();
+        std::ofstream file("./folder/cyklometryczna");
+        file << "digraph files_graph\n{\n ";
 
-        std::system("cat " + test + " | sed 's/|/ /' | awk '{print $1, $7}'");
-        
-        
-        std::cout << test;
+        for(auto i = x.begin() ; i != x.end() ; ++i)
+        {
+            pliki = cyklo(i->first);
+            for(auto j = pliki.begin() ; j!= pliki.end() ; ++j)
+            {
+                file <<"\"" + *j+"\"\n";
+
+            }
 
 
+
+        }
+        file<<"}";
+
+        std::string word = "dot -Tpng -O ./folder/cyklometryczna";
+        int n = word.length();
+        char array[n];
+        strcpy(array, word.c_str());
+
+        exec(array);
         break;
+        */
     }
-    */
+    
+    
     default:
     {
         std::cout << "End of the program" << std::endl;
@@ -177,3 +202,33 @@ int main()
 
     return 0;
 }
+
+
+std::string exec(const char *cmd)
+        {
+#ifdef _WIN32
+            _popen(" ", "w");
+#else
+            popen(" ", "w");
+#endif
+
+            char buffer[128];
+            std::string result = "";
+            FILE *pipe = popen(cmd, "r");
+            if (!pipe)
+                throw std::runtime_error("fail");
+            try
+            {
+                while (fgets(buffer, sizeof buffer, pipe) != NULL)
+                {
+                    result += buffer;
+                }
+            }
+            catch (...)
+            {
+                pclose(pipe);
+                throw;
+            }
+            pclose(pipe);
+            return result;
+        }
