@@ -151,7 +151,23 @@ int main()
         paradigm_graph jeden;
         break;
 
+    }/*
+    case 8:
+    {
+        std::stringstream uchwyt; 
+
+        uchwyt<<std::system("pmccabe -f search_func_nam.cpp");
+        std::string test = uchwyt.str();
+
+        std::system("cat " + test + " | sed 's/|/ /' | awk '{print $1, $7}'");
+        
+        
+        std::cout << test;
+
+
+        break;
     }
+    */
     default:
     {
         std::cout << "End of the program" << std::endl;
