@@ -6,24 +6,24 @@ std::string git_version()
 {
     std::string wersja;
     std::system("git log --pretty=%H -1 >test.txt");
-    //std::cout << std::ifstream("test.txt").rdbuf();
+    
 
-    std::fstream uchwyt; //obiekt typu fstream (uchwyt do pliku)
+    std::fstream uchwyt; 
  
-    uchwyt.open("test.txt"); //otwieramy plik: plik.txt (plik - nazwa pliku, txt - rozszerzenie)
+    uchwyt.open("test.txt"); 
     std::string linia;
     do
     {
-        getline(uchwyt, linia); //pobierz linijkę
+        getline(uchwyt, linia); 
         if(linia != " ")
         {
             wersja = linia;
             return wersja;
         }
     }
-    while(linia != ""); //przerwij jeżeli linia będzie pusta (dane w pliku się skończą) UWAGA: Pamiętaj, żeby w pliku zostawić ostatnią linijkę pustą
+    while(linia != ""); 
  
-    uchwyt.close(); //zamykamy plik
+    uchwyt.close(); 
     
     return wersja;
 }

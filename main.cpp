@@ -91,7 +91,6 @@ int main()
         std::map<std::string, std::vector<std::string>> z = wyszukiwanie2(x);
         std::map<std::string, std::vector<std::string>> tmp;
 
-        //oczyszczenie mapy jasia
         for (auto i = z.begin(); i != z.end(); ++i)
         {
             for (auto j = i->second.begin(); j != i->second.end(); ++j)
@@ -147,9 +146,10 @@ int main()
         
         break;
     }
-    case 7
+    case 7:
     {
         paradigm_graph jeden;
+        break;
 
     }
     default:
