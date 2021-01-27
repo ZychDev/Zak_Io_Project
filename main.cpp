@@ -10,6 +10,7 @@
 #include "Mateusz_name_fun.cpp"
 #include "convert.cpp"
 #include "files_functions_dep.cpp"
+#include "paradigm.cpp"
 //CEL
 //Program glowny ktory ma opcje wybory rysowanego grafu
 //tutaj sa tworzone klasy graph 
@@ -44,11 +45,12 @@ namespace trzy
 
 int main()
 {
+
     std::cout << "Hello enter path to folder with program " << std::endl;
     std::string path;
     std::cin>>path;
     std::cout << "Choose the graph you are interested in " << std::endl;
-    std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje \n5.Pliki - Namespaces" << std::endl;
+    std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje(Bezpośrednie także) \n5.Pliki - Namespaces" << std::endl;
 
     int choice;
     std::cin >> choice;
@@ -57,6 +59,7 @@ int main()
     {
     case 1:
     {
+    	paradigm_graph jeden;
         std::map<std::string, double> x = listing(path);
         Graph graf_plikow(x);
         break;
@@ -67,6 +70,10 @@ int main()
         trzy::wyswietl();
         jeden::dwa::wyswietl2();
         std::vector<std::string> z = wyszukiwanie_name_ciag(x);
+        for(auto i  = z.begin() ; i != z.end() ; ++i)
+        {
+            std::cout<<*i<<std::endl;
+        }
         Graph graf_namespace_pliki(z);
 
         break;

@@ -11,6 +11,8 @@
 #include <sys/stat.h>
 //przypiete pliki
 #include "search_include.cpp"
+#include "wersja_gita.cpp"
+
 //#include "files_functions_dep.cpp"
 //#include "convert.cpp"
 //CEL
@@ -77,14 +79,47 @@ public:
         std::map<std::string, std::map<std::string, std::list<std::string>>> combine = pliki_fun(files, functions);//tutaj uzywamy pliki_fun
         */
         std::string name = "pliki_funkcje.dot";
+        std::string name2 = "pliki_funkcje_bezposrednie.dot";
+        Save_File_Bezposrednie(combine, name2);
         Save_File_Func(combine, name);
     }
+
+    void Save_File_Bezposrednie(std::map<std::string, std::map<std::string, std::list<std::string>>> combine, std::string name)
+    {
+        std::ofstream file("./folder/" + name);
+
+        file << "digraph files_graph\n{\n";
+        file << "label = \""+git_version()+"\"\n";
+
+        for (auto i = combine.begin(); i != combine.end(); ++i)
+        {
+            for (auto j = i->second.begin(); j != i->second.end(); ++j)
+            {
+                file << '"' << i->first << "\"->" << '"' << j->first << '"' << "\n";
+            }
+        }
+
+        file << "}";
+        file.close();
+        std::string word = "dot -Tpng -O ./folder/" + name;
+        int n = word.length();
+        char array[n];
+        strcpy(array, word.c_str());
+
+        exec(array);
+    }
+
+
+
+
     void Save_File_n(std::vector<std::string> vec, std::string name)
     {
         //std::ofstream file(name);
         std::ofstream file("./folder/" + name);
 
         file << "digraph files_graph\n{\n";
+        file << "label = \""+git_version()+"\"\n";
+
 
         for (auto i = vec.begin(); i != vec.end(); ++i)
         {
@@ -116,6 +151,7 @@ public:
         std::ofstream file("./folder/" + name);
 
         file << "digraph files_graph\n{\n";
+        file << "label = \""+git_version()+"\"\n";
 
         for (auto i = combine.begin(); i != combine.end(); ++i)
         {
@@ -145,6 +181,8 @@ public:
         std::ofstream file("./folder/" + name);
 
         file << "digraph files_graph\n{\n";
+        file << "label = \""+git_version()+"\"\n";
+
         for (auto it = names.begin(); it != names.end(); ++it)
         {
             for (auto j = it->second.begin(); j != it->second.end(); ++j)
@@ -188,6 +226,7 @@ public:
         std::ofstream file("./folder/" + name);
 
         file << "digraph files_graph\n{\n";
+        file << "label = \""+git_version()+"\"\n";
 
         for (auto i = l.begin(); i != l.end(); ++i)
         {
@@ -215,6 +254,8 @@ public:
     {
         std::ofstream file("./folder/" + name);
         file << "digraph files_graph\n{\n";
+        file << "label = \""+git_version()+"\"\n";
+
         for (auto i = l.begin(); i != l.end(); ++i)
         {
             if (i->first != "a.out")
@@ -236,6 +277,7 @@ public:
                 }
             }
         }
+
 
         file << "}";
         file.close();
