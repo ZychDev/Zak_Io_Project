@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Author="szymo" CommentTableSortAscending="false" CommentTableSortColumn="Date Time" DocumentationType="html" ExportedFromDifferentName="false" ExporterVersion="16.1.1" Name="Files" TextualAnalysisHighlightOptionCaseSensitive="false" UmlVersion="2.x" Xml_structure="simple">
+<Models><Stereotype Id="inc" Name="Include" />
+<ModelRelationshipContainer Id="fzvJq66GAqAQZgmD" Name="relationships">
+<ModelChildren>
+<ModelRelationshipContainer Id="fzvJq66GAqAQZgmE" Name="Include">
+<ModelChildren>
