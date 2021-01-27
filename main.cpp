@@ -10,6 +10,7 @@
 #include "Mateusz_name_fun.cpp"
 #include "convert.cpp"
 #include "files_functions_dep.cpp"
+#include "paradigm.cpp"
 //CEL
 //Program glowny ktory ma opcje wybory rysowanego grafu
 //tutaj sa tworzone klasy graph 
@@ -58,6 +59,7 @@ int main()
     {
     case 1:
     {
+    	paradigm_graph jeden;
         std::map<std::string, double> x = listing(path);
         Graph graf_plikow(x);
         break;

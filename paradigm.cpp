@@ -4,7 +4,7 @@
 #include<vector>
 #include <fstream>
 #include <iostream>
-//#include <bits/stdc++.h>
+
 class paradigm_graph
 {
   private:
@@ -169,22 +169,6 @@ ofile<<aft3_loop<<std::endl;
   
 
 };
-
-
-
-
-
-
-
-
-/*4 for  done
-std::cout<<"<Include Background=\"rgb(122, 207, 245)\" Foreground=\"rgb(0, 0, 0)\" From=\"\" Id=\"\" Model=\"\" To=\" \">"<<std::endl;
-std::cout<<"<ElementFont Color=\"rgb(0, 0, 0)\" Name=\"Dialog\" Size=\"11\" Style=\"0\"/>"<<std::endl;
-std::cout<<"<Caption Height=\"30\" Visible=\"true\" Width=\"82\" X=\"\" Y=\"\"/>"<<std::endl;
-std::cout<<"</Include>"<<std::endl;
-
-*/
-
 };
 
 
