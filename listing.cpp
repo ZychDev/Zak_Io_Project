@@ -26,7 +26,7 @@ std::map<std::string, double> listing(std::string sciezka)
         //test::show_me();
         if (std::filesystem::is_directory(std::filesystem::path(entry)) != 1)
         { //hi3
-            if (std::filesystem::path(entry).filename().string() == ".DS_Store" || std::filesystem::path(entry).filename().string() == "a.out")
+            if (std::filesystem::path(entry).filename().string() == ".DS_Store" || std::filesystem::path(entry).filename().string() == "a.out" || std::filesystem::path(entry).filename().string() == "file_test.cpp" || std::filesystem::path(entry).filename().string() == "names_test.cpp" || std::filesystem::path(entry).filename().string() == "fun_test.cpp")
             { //hi4
             }//close1
             else
