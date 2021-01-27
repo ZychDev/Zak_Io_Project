@@ -50,7 +50,7 @@ int main()
     std::string path;
     std::cin>>path;
     std::cout << "Choose the graph you are interested in " << std::endl;
-    std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje(Bezpośrednie także) \n5.Pliki - Namespaces" << std::endl;
+    std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje(Bezpośrednie także) \n5.Pliki - Namespaces \n6.Function - Namespace \n 7.XML\n" << std::endl;
 
     int choice;
     std::cin >> choice;
@@ -59,7 +59,6 @@ int main()
     {
     case 1:
     {
-    	paradigm_graph jeden;
         std::map<std::string, double> x = listing(path);
         Graph graf_plikow(x);
         break;
@@ -147,6 +146,11 @@ int main()
         function_namespce_functions(combine);
         
         break;
+    }
+    case 7
+    {
+        paradigm_graph jeden;
+
     }
     default:
     {
