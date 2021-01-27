@@ -19,7 +19,6 @@ std::map<std::string, double> listing(std::string sciezka)
 { //hi1
     //deklaracja zmiennych i przyjecie sciezki od uzytkownika
     std::map<std::string, double> map_name_size;
-    
     //iteracja po folderze oraz wyłuskanie nazw plikow
     for (auto &entry : std::filesystem::directory_iterator(sciezka))
     { //hi2

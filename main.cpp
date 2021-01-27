@@ -44,11 +44,12 @@ namespace trzy
 
 int main()
 {
+
     std::cout << "Hello enter path to folder with program " << std::endl;
     std::string path;
     std::cin>>path;
     std::cout << "Choose the graph you are interested in " << std::endl;
-    std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje \n5.Pliki - Namespaces" << std::endl;
+    std::cout << "1.Files  \n2.Namespaces  \n3.Functions  \n4.Pliki - Funkcje(Bezpośrednie także) \n5.Pliki - Namespaces" << std::endl;
 
     int choice;
     std::cin >> choice;
@@ -67,6 +68,10 @@ int main()
         trzy::wyswietl();
         jeden::dwa::wyswietl2();
         std::vector<std::string> z = wyszukiwanie_name_ciag(x);
+        for(auto i  = z.begin() ; i != z.end() ; ++i)
+        {
+            std::cout<<*i<<std::endl;
+        }
         Graph graf_namespace_pliki(z);
 
         break;
